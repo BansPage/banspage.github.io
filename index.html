@@ -2,20 +2,26 @@
 <html>
 <head>
     <title>Stage Striking</title>
+    <meta name="description" content="The homepage of Adam Gincel's personal website." />
     <meta name="viewport" content="width=device-width">
 
 </head>
 <body>
     <h1>Smash Bros Stage Striking</h1>
     <p>Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are our day-1 lists. Lists subject to change as community decides on legal stages.)</p>
-    <p><a onclick="init('0')" href="#">View Generous Stagelist</a> | <a onclick="init('1')" href="#">View More Strict Stagelist</a></p>
+    <p><a onclick="init('0')" href="#">View Generous Stagelist</a> | <a onclick="init('1')" href="#">View More Strict Stagelist</a> | <a onclick="init('2')" href="#">View Smash 4 Stagelist</a></p>
     
 
     <div id="starters"></div>
 
     <div id="counterpicks"></div>
 
-    <footer>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a></footer>
+    <br /><br />
+    <section>
+    	 <p><img src="dotted.jpg" />¬ = Hazardless</p>
+    </section>
+
+    <footer>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a><p>More features, including the ability to create and share custom banlists, to come!</p></footer>
 </body>
 </html>
 
@@ -43,7 +49,7 @@
             { id: 13, hazardless: true, name: "Kongo Falls" },
             { id: 4, hazardless: true, name: "Peach's Castle N64" },
         ]
-    }
+    };
 
     let condensed = {
         starters: [
@@ -63,12 +69,25 @@
             { id: 39, hazardless: true, name: "Lylat Cruise" },
             { id: 36, hazardless: true, name: "Frigate Orpheon" },
         ]
+    };
+
+    let s4 = {
+    	starters: [
+    		{ id: 1, hazardless: false, name: "Battlefield" },
+    		{ id: 3, hazardless: false, name: "Final Destination" },
+    		{ id: 44, hazardless: false, name: "Smashville" },
+    		{ id: 85, hazardless: false, name: "Town and City" },
+    	],
+    	counterpicks: [
+    		{ id: 39, hazardless: false, name: "Lylat Cruise" }
+    	]
     }
 
 
     let dataMap = [];
     dataMap.push(full);
     dataMap.push(condensed);
+    dataMap.push(s4);
 
 
     function init(ind) {
@@ -124,6 +143,12 @@
         border-radius: 0.5em;
         margin-right: 10px;
         margin-bottom: 0px;
+    }
+
+    section img {
+    	border-radius: 0;
+    	display: inline;
+    	padding-left: -5px;
     }
 
     .struck {
