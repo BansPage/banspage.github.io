@@ -85,7 +85,7 @@
 
     // Current format is ?s={starter ID}{optional "h" for hazardless}-{next stage}&c={counterpick ID}{optional "h" for hazardless}-{next stage}
     // Example: ?s=12h-2-3&c=3h-4-12
-    function getURLParamaters() {
+    function getURLParameters() {
         let urlString = window.location.href;
         let url = new URL(urlString);
 
@@ -110,7 +110,7 @@
         return {starters: startersList, counterpicks: countersList};
     }
 
-    function generateURLParamaters(data) {
+    function generateURLParameters(data) {
         let parameterString = "";
 
         let starters = data.starters;
