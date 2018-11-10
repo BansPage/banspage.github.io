@@ -9,7 +9,7 @@
 <body>
     <h1>Smash Bros Stage Striking</h1>
     <p>Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are our day-1 lists. Lists subject to change as community decides on legal stages.)</p>
-    <p><a onclick="init('0')" href="#">View Generous Stagelist</a> | <a onclick="init('1')" href="#">View More Strict Stagelist</a> | <a onclick="init('2')" href="#">View Smash 4 Stagelist</a></p>
+    <p><a onclick="init('0')" href="#">View Generous Stagelist</a> | <a onclick="init('1')" href="#">View More Strict Stagelist</a> | <a onclick="init('2')" href="#">View Smash 4 Stagelist</a> | <a onclick="init(3)" href="#">Load Shared List.</a></p>
     
 
     <div id="starters"></div>
@@ -83,12 +83,38 @@
     	]
     }
 
+    // Current format is ?s={starter ID}{optional "h" for hazardless}-{next stage}&c={counterpick ID}{optional "h" for hazardless}-{next stage}
+    // Example: ?s=12h-2-3&c=3h-4-12
+    function getURLParamaters() {
+        let urlString = window.location.href;
+        let url = new URL(urlString);
+
+        // Load starters
+        let startersParamList = url.searchParams.get("s").split("-");
+        let startersList = [];
+
+        for(let i = 0; i < startersParamList.length; i++) {
+            let stageData = startersParamList[i].split(/(\d+)/);
+            startersList.push({id: stageData[1], hazardless: (stageData[2] == "h" ? true : false) , name: "NOT IMPLEMENTED"});
+        }
+
+        // Load counterpicks
+        let countersParamList = url.searchParams.get("c").split("-");
+        let countersList = [];
+
+        for(let i = 0; i < countersParamList.length; i++) {
+            let stageData = countersParamList[i].split(/(\d+)/);
+            countersList.push({id: stageData[1], hazardless: (stageData[2] == "h" ? true : false) , name: "NOT IMPLEMENTED"});
+        }
+        
+        return {starters: startersList, counterpicks: countersList};
+    }
 
     let dataMap = [];
     dataMap.push(full);
     dataMap.push(condensed);
     dataMap.push(s4);
-
+    dataMap.push(getURLParamaters());
 
     function init(ind) {
         let data = dataMap[parseInt(ind)];
