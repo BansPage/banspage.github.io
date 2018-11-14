@@ -21,7 +21,7 @@
     	 <p><img src="dotted.jpg" />¬ = Hazardless</p>
     </section>
 
-    <footer>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a><p>More features, including the ability to create and share custom banlists, to come!</p></footer>
+    <footer>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a><p>More features, including the ability to create and share custom banlists, to come!</p></footer>
 </body>
 </html>
 
@@ -83,12 +83,61 @@
     	]
     }
 
+    // Current format is ?s={starter ID}{optional "h" for hazardless}-{next stage}&c={counterpick ID}{optional "h" for hazardless}-{next stage}
+    // Example: ?s=12h-2-3&c=3h-4-12
+    function getURLParameters() {
+        let urlString = window.location.href;
+        let url = new URL(urlString);
+
+        // Load starters
+        let startersParamList = url.searchParams.get("s").split("-");
+        let startersList = [];
+
+        for(let i = 0; i < startersParamList.length; i++) {
+            let stageData = startersParamList[i].split(/(\d+)/);
+            startersList.push({id: stageData[1], hazardless: (stageData[2] == "h" ? true : false) , name: "NOT IMPLEMENTED"});
+        }
+
+        // Load counterpicks
+        let countersParamList = url.searchParams.get("c").split("-");
+        let countersList = [];
+
+        for(let i = 0; i < countersParamList.length; i++) {
+            let stageData = countersParamList[i].split(/(\d+)/);
+            countersList.push({id: stageData[1], hazardless: (stageData[2] == "h" ? true : false) , name: "NOT IMPLEMENTED"});
+        }
+
+        return {starters: startersList, counterpicks: countersList};
+    }
+
+    function generateURLParameters(data) {
+        let parameterString = "";
+
+        let starters = data.starters;
+        let counters = data.counterpicks;
+
+        parameterString += "?s=";
+        for(let i = 0; i < starters.length; i++) {
+            if(i != 0) {
+                parameterString += "-";
+            }
+            parameterString += starters[i].id + (starters[i].hazardless ? "h" : "");
+        }
+
+        parameterString += "&c=";
+        for(let i = 0; i < counters.length; i++) {
+            if(i != 0) {
+                parameterString += "-";
+            }
+            parameterString += counters[i].id + (counters[i].hazardless ? "h" : "");
+        }
+        return parameterString
+    }
 
     let dataMap = [];
     dataMap.push(full);
     dataMap.push(condensed);
     dataMap.push(s4);
-
 
     function init(ind) {
         let data = dataMap[parseInt(ind)];
