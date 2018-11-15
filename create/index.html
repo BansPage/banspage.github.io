@@ -1,27 +1,30 @@
 <!doctype HTML>
 <head>
-	<title>Banlist Creation</title>
-	<meta name="description" content="Create your own SSBU Banlist." />
+	<title>Bans.Create</title>
+
+	<meta name="description" content="Create your own SSBU Stagelist." />
 	<meta name="viewport" content="width=device-width" />
-	 <meta charset="UTF-8" /> 
+	<meta charset="UTF-8" /> 
+
 	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
 	<script src="../constants.js"></script>
  	<script src="create.js"></script>
 </head>
 
 <body>
 	<h1>Create Your Own Stagelist!</h1>
-	<p>If you leave the default two buckets, you'll have standard "Starters" and "Counterpicks". If you go for 3 or more buckets, your buckets will be numbered.<br />The ¬ symbol means a stage should only be used with the Stage Hazard Toggle enabled.</p>
+	<p>
+		Welcome to the bans.page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "View Created Stagelist"!
+	</p>
 
-	<p id="limited">This page displays a limited selection of stages to pick from, based on likely eligible choices. For the full list, visit <a href="./index.html?nolimits=1">this page</a>.</p>
+	<p>A stage code will be generated when you do this -- you can share the link to your stagelist, or just the code!</p>
 
-	<p id="unlimited" class="hidden">This page displays all possible stages to select from, instead of just likely picks. For a more limited selection, visit <a href="./index.html">this page</a>.</p>
-	
-	<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
-	<input type="text" id="generatedCode" /><br />
-	<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
-	<br /><hr />
-	<button onclick="generateCode()">Generate Stage Code</button><br />
+	<p>The ¬ symbol means a stage should only be played without Stage Hazards.</p>
+	<hr />
+	<!-- <button onclick="generateCode()">Generate Stage Code</button><br /> -->
 	<button onclick="redirect()">View Created Stagelist</button><br /><hr />
 	<main id="buckets">
 		<section id="bucket1">
@@ -47,6 +50,20 @@
 	</main>
 	<br /><br />
 	<button onclick="addBucket()">Add Stage Bucket</button>
+	<p>If you leave the default two buckets, you'll have standard "Starters" and "Counterpicks". If you go for 3 or more buckets, your buckets will be numbered.</p>
+
+	<hr />
+	<p id="limited">
+		This page displays a limited selection of stages to pick from, based on likely eligible choices.
+		For the full list, visit <a href="./index.html?nolimits=1">this page</a>.
+	</p>
+
+	<p id="unlimited" class="hidden">This page displays all possible stages to select from, instead of just likely picks. For a more limited selection, visit <a href="./index.html">this page</a>.</p>
+	
+	<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
+	<input type="text" id="generatedCode" /><br />
+	<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
+
 	<footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
 		<p><a href="../index.html">Home</a> | <a href="./index.html">Stagelist Creator</a></p>
@@ -54,16 +71,23 @@
 </body>
 
 <script>
+	loadSelects();
 
 	let urlString = window.location.href;
     let url = new URL(urlString);
-    let param = url.searchParams.get("nolimits");
-    if (param) {
+    let nolimits = url.searchParams.get("nolimits");
+    let stageCode = url.searchParams.get("s");
+    if (nolimits) {
     	whitelist = names;
     	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
     	document.getElementById("unlimited").classList.remove("hidden");
     	document.getElementById("limited").classList.add("hidden");
     }
 
-	loadSelects();
+    if (stageCode) {
+    	document.getElementById("generatedCode").value = stageCode;
+    	console.log(document.getElementById("generatedCode").value);
+    	loadBuckets();
+    	document.getElementById("generatedCode").value = stageCode;
+    }
 </script>

@@ -62,6 +62,11 @@ function loadSelects() {
 	document.getElementById("generatedCode").value = "";
 }
 
+function validStage(s) {
+	s = parseInt(s.split("h")[0]);
+	return whitelist.indexOf(names[s]) > 0;
+}
+
 function setFirstBucketHeaders() {
 	if (document.getElementById("buckets").getElementsByTagName("section").length == 2) {
 		document.getElementById("header1").innerHTML = "Starters";
@@ -122,11 +127,20 @@ function loadBuckets() {
 	for (let i = 0; i < bucketCodes.length; i++) {
 		let stages = bucketCodes[i].split("-");
 		let currentBucket = document.getElementById("bucket" + (i + 1).toString()).getElementsByTagName("div")[0];
+		currentBucket.innerHTML = "";
 		while (currentBucket.getElementsByTagName("select").length < stages.length)
 			addStage(i + 1);
 		let selects = currentBucket.getElementsByTagName("select");
 		for (let j = 0; j < stages.length; j++) {
-			selects[j].value = stages[j]
+			if (validStage(stages[j]))
+				selects[j].value = stages[j];
+			else {
+				let stageCode = document.getElementById("generatedCode").value;
+				if (window.location.href.indexOf("?") == -1)
+					window.location.href = window.location.href + "?nolimits=1&s=" + stageCode;
+				else
+					window.location.href = window.location.href + "&nolimits=1";
+			}
 		}
 	}
 

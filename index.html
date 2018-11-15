@@ -1,47 +1,51 @@
 ﻿<!doctype html>
 <html>
 <head>
-    <title>Stage Striking</title>
+    <title>Bans.Page</title>
+
     <meta name="description" content="Ban stages for Super Smash Bros!" />
-    <meta name="viewport" content="width=device-width">
- 	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" /> 
+
+ 	<link rel="stylesheet" type="text/css" href="style.css" />
+ 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
  	<script src="constants.js"></script>
  	<script src="logic.js"></script>
 </head>
 <body>
     <h1>Smash Bros Stage Striking</h1>
 
-    <label>Stage Code: </label><input type="text" id="stageCode" /> <br />
-    <button class="small" onclick="load()">Load From Code</button>
-
     <p>
-    	Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are our day 1 lists. Lists subject to change as community decides on legal stages.)
-    </p>
-    <p>
-    	<a onclick="initFromDataMap(0)" href="#">SMASHADELPHIA Stagelist</a> | 
-    	<a onclick="initFromDataMap(1)" href="#">Xanadu Stagelist</a> | 
-    	<a onclick="initFromDataMap(2)" href="#">2GG's Stagelist</a> |
-    	<a onclick="initFromDataMap(3)" href="#">Ori's (Michigan TO) Stagelist</a> 
+    	Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are day 1 lists, which are subject to change as community decides on legal stages.)
     </p>
 
-    <p><a href="./create/index.html">Create your own stagelist!</a></p>
-    
-    <!-- Up to 9 buckets. Yeah, I could have generated these some other way. If you really want more than 9 buckets just...@ me I guess? -->
-    <div id="bucket0"></div>
-    <div id="bucket1"></div>
-    <div id="bucket2"></div>
-	<div id="bucket3"></div>
-    <div id="bucket4"></div>
-    <div id="bucket5"></div>
-    <div id="bucket6"></div>
-    <div id="bucket7"></div>
-    <div id="bucket8"></div>
-
-    <br /><br />
+    <section id="buckets">
+	    <div id="bucket0"></div>
+	    <div id="bucket1"></div>
+	</section>
 
     <section>
     	 <p><img src="dotted.jpg" />¬ = Hazardless</p>
     </section>
+
+    <br /><br /><hr />
+
+    <label>Stage Code: </label><input type="text" id="stageCode" /> <br />
+    <button class="small" onclick="load()">Load From Code</button>
+    <button class="small" onclick="gotoCreate()">Edit Stagelist From Code</button>
+    <p>
+    	Community Created Stagelists:<br />
+    	<ul>
+	    	<li><a onclick="initFromDataMap(0)" href="#">SMASHADELPHIA Stagelist</a></li>
+	    	<li><a onclick="initFromDataMap(1)" href="#">Xanadu Stagelist</a></li>
+	    	<li><a onclick="initFromDataMap(2)" href="#">2GG's Stagelist</a></li>
+	    	<li><a onclick="initFromDataMap(3)" href="#">Ori's (Michigan TO) Stagelist</a></li>
+	    </ul>
+    </p>
+
+    <h2><a href="./create/index.html">Create your own stagelist!</a></h2> 
 
     <footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
@@ -65,8 +69,14 @@ if (generated) {
 
 function load() {
 	let stageCode = document.getElementById("stageCode").value;
-	if (stageCode) 
-		init(decode(stageCode));
+	if (stageCode)
+		window.location.href = "./index.html?s=" + stageCode;
+}
+
+function gotoCreate() {
+	let stageCode = document.getElementById("stageCode").value;
+	if (stageCode)
+		window.location.href = "./create/index.html?s=" + stageCode;
 }
 
 </script>

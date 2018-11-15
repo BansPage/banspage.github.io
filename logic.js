@@ -69,14 +69,29 @@ function generateURLParameters(data) {
 
 
 function init(data) {
-    let divs = document.getElementsByTagName("div");
+    let section = document.getElementById("buckets");
+    let divs = section.getElementsByTagName("div");
     for (let i = 0; i < divs.length; i++) {
-        if (divs[i].id.startsWith("bucket")) {
-            divs[i].innerHTML = "";
-        }
+        divs[i].innerHTML = "";
+    }
+    for (let i = divs.length - 1; i >= 2; i--) {
+        section.removeChild(divs[i]);
+    }
+    let currBucket = 2;
+    while (section.getElementsByTagName("div").length < data.length) {
+        let newDiv = document.createElement("div");
+        newDiv.id = "bucket" + currBucket.toString();
+        section.appendChild(newDiv);
+        currBucket += 1;
     }
 
     let headers = getHeaders(data.length);
+    if (!headers) {
+        headers = [];
+        for (let i = 0; i < data.length; i++) {
+            headers.push("Bucket " + (i + 1).toString());
+        }
+    }
     let offset = 0;
     for (let i = 0; i < data.length; i++) {
         let htmlString = "<h2>" + headers[i] + "</h2>\n";
@@ -99,7 +114,7 @@ function getHeaders(len) {
     } else if (len == 2) {
         return ["Starters", "Counterpicks"];
     }
-    return ["Bucket 1", "Bucket 2", "Bucket 3", "Bucket 4", "Bucket 5", "Bucket 6", "Bucket 7", "Bucket 8", "Bucket 9"]; //yes this is lazy
+    return undefined;
 }
 
 function getInnerHtml(arr, offset) {
