@@ -5,12 +5,25 @@ body {
     background-repeat: repeat;
 }
 
+.about {
+    width: 50vw;
+    background-color: #eeeeee99;
+    border-radius: 0.25em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
 img {
     width: 100px;
     height: auto;
     border-radius: 0.5em;
     margin-right: 10px;
     margin-bottom: 0px;
+}
+
+div p {
+    max-width: 100px;
 }
 
 section img {
@@ -124,5 +137,9 @@ section button {
 
     main div {
         width: 100%;
+    }
+
+    .about {
+        width: 95%;
     }
 }

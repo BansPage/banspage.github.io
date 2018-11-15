@@ -49,7 +49,8 @@
 
     <footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
-		<p><a href="./index.html">Home</a> | <a href="./create/index.html">Stagelist Creator</a></p>
+		<p><a href="./index.html">Home</a> | <a href="./create/index.html">Stagelist Creator</a> | <a href="./about.html">About</a></p>
+		<p>(c) 2018</p>
 	</footer>
 </body>
 </html>
@@ -77,6 +78,9 @@ function gotoCreate() {
 	let stageCode = document.getElementById("stageCode").value;
 	if (stageCode)
 		window.location.href = "./create/index.html?s=" + stageCode;
+	else {
+		window.location.href="./create/index.html";
+	}
 }
 
 </script>
