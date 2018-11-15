@@ -1,0 +1,118 @@
+body {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url("bg.png");
+    background-repeat: repeat;
+}
+
+img {
+    width: 100px;
+    height: auto;
+    border-radius: 0.5em;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+section img {
+	border-radius: 0;
+	display: inline;
+	padding-left: -5px;
+}
+
+.struck {
+    filter: grayscale(100%);
+    opacity: 0.65;
+}
+
+.hazardless {
+    border: 5px dashed black;
+    width: 95px;
+}
+
+.stage {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0px;
+}
+
+.stage p {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+footer {
+	margin-top: 50px;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+    background-color: #eee;
+    opacity: 0.75;
+}
+
+select {
+    display: inline-block;
+}
+
+main div {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+select {
+    font-size: 25px;
+    margin-bottom: 4px;
+}
+
+button {
+    font-size: 25px;
+}
+
+.small {
+    font-size: 18px;
+}
+
+input {
+    width: 40%;
+    text-align: center;
+}
+
+section button {
+    border-radius: 0.5em;
+    min-width: 100px;
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 1080px) {
+    img {
+        width: 15vw;
+        margin-right: 2px;
+    }
+
+    input {
+        width: 80%;
+        text-align: center;
+    }
+
+    .hazardless {
+        width: 14vw;
+        border: 2px dotted black;
+    }
+
+    div p {
+        font-size: 10px;
+        max-width: 15vw;
+        line-height: 12px;
+    }
+
+    main div {
+        width: 100%;
+    }
+}

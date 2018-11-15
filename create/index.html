@@ -1,0 +1,69 @@
+<!doctype HTML>
+<head>
+	<title>Banlist Creation</title>
+	<meta name="description" content="Create your own SSBU Banlist." />
+	<meta name="viewport" content="width=device-width" />
+	 <meta charset="UTF-8" /> 
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script src="../constants.js"></script>
+ 	<script src="create.js"></script>
+</head>
+
+<body>
+	<h1>Create Your Own Stagelist!</h1>
+	<p>If you leave the default two buckets, you'll have standard "Starters" and "Counterpicks". If you go for 3 or more buckets, your buckets will be numbered.<br />The ¬ symbol means a stage should only be used with the Stage Hazard Toggle enabled.</p>
+
+	<p id="limited">This page displays a limited selection of stages to pick from, based on likely eligible choices. For the full list, visit <a href="./index.html?nolimits=1">this page</a>.</p>
+
+	<p id="unlimited" class="hidden">This page displays all possible stages to select from, instead of just likely picks. For a more limited selection, visit <a href="./index.html">this page</a>.</p>
+	
+	<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
+	<input type="text" id="generatedCode" /><br />
+	<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
+	<br /><hr />
+	<button onclick="generateCode()">Generate Stage Code</button><br />
+	<button onclick="redirect()">View Created Stagelist</button><br /><hr />
+	<main id="buckets">
+		<section id="bucket1">
+			<h2 id="header1">Starters</h2>
+			<button onclick="addStage(1)"> + </button> 
+			<button onclick="removeStage(1)"> - </button>
+			<br /><br />
+
+			<div>
+				<select id="asdf"></select><br />
+			</div>
+		</section>
+
+		<section id="bucket2">
+			<h2 id="header2">Counterpicks</h2>
+			<button onclick="addStage(2)"> + </button> 
+			<button onclick="removeStage(2)"> - </button>
+			<br /><br />
+			<div>
+				<select></select><br />
+			</div>
+		</section>
+	</main>
+	<br /><br />
+	<button onclick="addBucket()">Add Stage Bucket</button>
+	<footer>
+		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
+		<p><a href="../index.html">Home</a> | <a href="./index.html">Stagelist Creator</a></p>
+	</footer>
+</body>
+
+<script>
+
+	let urlString = window.location.href;
+    let url = new URL(urlString);
+    let param = url.searchParams.get("nolimits");
+    if (param) {
+    	whitelist = names;
+    	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
+    	document.getElementById("unlimited").classList.remove("hidden");
+    	document.getElementById("limited").classList.add("hidden");
+    }
+
+	loadSelects();
+</script>
