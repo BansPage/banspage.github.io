@@ -113,6 +113,21 @@ section button {
     font-size: 40px;
 }
 
+section input {
+    width: auto;
+    margin-left: 8px;
+    transform: scale(1.5);
+}
+
+section input + label {
+    opacity: 0;
+    font-size: 30px;
+}
+
+input:checked + label {
+    opacity: 1;
+}
+
 @media only screen and (max-width: 1080px) {
     img {
         width: 15vw;

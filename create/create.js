@@ -6,6 +6,12 @@ function addStage(ind) {
 	let newSelect = document.createElement("SELECT");
 	newSelect.innerHTML = getSelectInner();
 	div.appendChild(newSelect);
+	let newCheckbox = document.createElement("input");
+	newCheckbox.type = "checkbox";
+	div.appendChild(newCheckbox);
+	let newLabel = document.createElement("label");
+	newLabel.innerHTML = " ¬";
+	div.appendChild(newLabel);
 	div.appendChild(document.createElement("br"));
 }
 
@@ -37,7 +43,9 @@ function addBucket() {
 
 	let htmlString = "<h2>Bucket " + currentBucketIndex.toString() + "</h2>\n";
 	htmlString += "<button onclick=\"addStage(" + currentBucketIndex.toString() + ")\">+</button>\n<button onclick=\"removeStage(" + currentBucketIndex.toString() + ")\">-</button><br /><br />\n";
-	htmlString += "<div>\n<select>" + getSelectInner() + "</select><br />\n</div>";
+	htmlString += "<div>\n<select>" + getSelectInner() + "</select>";
+	htmlString += "<input type=\"checkbox\" /><label> ¬</label>"
+	htmlString += "<br />\n</div>";
 	newSection.innerHTML = htmlString;
 
 	main.appendChild(newSection);
@@ -46,10 +54,10 @@ function addBucket() {
 
 function getSelectInner() {
 	let htmlString = "<option value=\"\">None</option>\n";
-	for (let i = 0; i < whitelist.length; i++) {
+	for (let i = 1; i < whitelist.length; i++) {
 		let realID = names.indexOf(whitelist[i]);
 		htmlString += "<option value=\"" + realID.toString() + "\">" + whitelist[i] + "</option>\n";
-		htmlString += "<option value=\"" + realID.toString() + "h\">" + whitelist[i] + " ¬</option>\n";
+		//htmlString += "<option value=\"" + realID.toString() + "h\">" + whitelist[i] + " ¬</option>\n";
 	}
 	return htmlString;
 }
@@ -60,6 +68,11 @@ function loadSelects() {
 		selects[i].innerHTML = getSelectInner();
 	}
 	document.getElementById("generatedCode").value = "";
+
+	let inputs = document.getElementsByTagName("input");
+	for (let i = 0; i < inputs.length; i++) {
+		inputs[i].checked = false;
+	}
 }
 
 function validStage(s) {
@@ -89,12 +102,14 @@ function generateCode() {
 		}
 		
 		let selects = sections[i].getElementsByTagName("div")[0].getElementsByTagName("select");
-
+		let checkboxes = sections[i].getElementsByTagName("div")[0].getElementsByTagName("input");
 		for (let j = 0; j < selects.length; j++) {
 			if (j != 0) {
 				bucketString += "-";
 			}
 			bucketString += selects[j].value;
+			if (checkboxes[j].checked)
+				bucketString += "h";
 		}
 		if (bucketString.length > 0 && bucketString != "|")
 			resultString += bucketString;
@@ -131,9 +146,17 @@ function loadBuckets() {
 		while (currentBucket.getElementsByTagName("select").length < stages.length)
 			addStage(i + 1);
 		let selects = currentBucket.getElementsByTagName("select");
+		let checkboxes = currentBucket.getElementsByTagName("input");
 		for (let j = 0; j < stages.length; j++) {
-			if (validStage(stages[j]))
-				selects[j].value = stages[j];
+			if (validStage(stages[j])) {
+				let stageID = stages[j].split("h")[0];
+				selects[j].value = stageID;
+				if (stages[j].indexOf("h") > -1) {
+					checkboxes[j].checked = true;
+				} else {
+					checkboxes[j].checked = false;
+				}
+			}
 			else {
 				let stageCode = document.getElementById("generatedCode").value;
 				if (window.location.href.indexOf("?") == -1)
@@ -148,12 +171,8 @@ function loadBuckets() {
 }
 
 function redirect() {
+	generateCode();
 	let v = document.getElementById("generatedCode").value;
-
-	if (!v) {
-		generateCode();
-		v = document.getElementById("generatedCode").value;
-	}
 
 	if (v)
 		window.location.href = "../index.html?s=" + v;

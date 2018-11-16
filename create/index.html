@@ -17,15 +17,13 @@
 <body>
 	<h1>Create Your Own Stagelist!</h1>
 	<p>
-		Welcome to the bans.page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "View Created Stagelist"!
+		Welcome to the Bans.Page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.
 	</p>
-
-	<p>A stage code will be generated when you do this -- you can share the link to your stagelist, or just the code!</p>
 
 	<p>The ¬ symbol means a stage should only be played without Stage Hazards.</p>
 	<hr />
 	<!-- <button onclick="generateCode()">Generate Stage Code</button><br /> -->
-	<button onclick="redirect()">View Created Stagelist</button><br /><hr />
+	<button onclick="redirect()">Create Stagelist</button><br /><hr />
 	<main id="buckets">
 		<section id="bucket1">
 			<h2 id="header1">Starters</h2>
@@ -34,7 +32,7 @@
 			<br /><br />
 
 			<div>
-				<select id="asdf"></select><br />
+				<select id="asdf"></select><input type="checkbox" /><label> ¬</label><br />
 			</div>
 		</section>
 
@@ -44,7 +42,7 @@
 			<button onclick="removeStage(2)"> - </button>
 			<br /><br />
 			<div>
-				<select></select><br />
+				<select></select><input type="checkbox" /><label> ¬</label><br />
 			</div>
 		</section>
 	</main>
@@ -53,16 +51,24 @@
 	<p>If you leave the default two buckets, you'll have standard "Starters" and "Counterpicks". If you go for 3 or more buckets, your buckets will be numbered.</p>
 
 	<hr />
-	<p id="limited">
-		This page displays a limited selection of stages to pick from, based on likely eligible choices.
-		For the full list, visit <a href="./index.html?nolimits=1">this page</a>.
-	</p>
 
-	<p id="unlimited" class="hidden">This page displays all possible stages to select from, instead of just likely picks. For a more limited selection, visit <a href="./index.html">this page</a>.</p>
-	
-	<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
-	<input type="text" id="generatedCode" /><br />
-	<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
+	<button onclick="redirect()">Create Stagelist</button><br /><hr /><br />
+
+	<p>If you'd like to change the list of stages to select from, click the button below.</p>
+
+	<button id="limited" onclick="window.location.href='./index.html?nolimits=1';">
+		Show Full Stage Options
+	</button>
+
+	<button id="unlimited" class="hidden" onclick="window.location.href='./index.html';">
+		Show Limited Stage Options
+	</button>
+
+	<div class="hidden">
+		<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
+		<input type="text" id="generatedCode" /><br />
+		<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
+	</div>
 
 	<footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
@@ -72,7 +78,7 @@
 </body>
 
 <script>
-	loadSelects();
+	
 
 	let urlString = window.location.href;
     let url = new URL(urlString);
@@ -84,6 +90,8 @@
     	document.getElementById("unlimited").classList.remove("hidden");
     	document.getElementById("limited").classList.add("hidden");
     }
+
+    loadSelects();
 
     if (stageCode) {
     	document.getElementById("generatedCode").value = stageCode;

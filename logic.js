@@ -42,7 +42,7 @@ function decode(code) {
         }
         data.push(bucketData);
     }
-
+    document.getElementById("stageCode").value = code;
     return data;
 }
 
