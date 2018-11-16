@@ -5,6 +5,12 @@ body {
     background-repeat: repeat;
 }
 
+.createBody {
+    background-image: url("bg_inverted.png");
+    background-repeat: repeat;
+    color: white;
+}
+
 .about {
     width: 50vw;
     background-color: #eeeeee99;
@@ -38,7 +44,7 @@ section img {
 }
 
 .hazardless {
-    border: 5px dashed black;
+    border: 4px dashed blue;
     width: 95px;
 }
 
@@ -58,6 +64,7 @@ h2 {
 }
 
 footer {
+    color: black;
 	margin-top: 50px;
     border-top: 1px gray solid;
     border-bottom: 1px gray solid;
@@ -141,7 +148,7 @@ input:checked + label {
 
     .hazardless {
         width: 14vw;
-        border: 2px dotted black;
+        border: 2px dotted blue;
     }
 
     div p {

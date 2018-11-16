@@ -125,7 +125,7 @@ function getInnerHtml(arr, offset) {
             s += "class=\"hazardless\" ";
         }
         s += "src=\"https://www.smashbros.com/assets_v2/img/stage/stage_thumb" + arr[i].id.toString() + ".jpg\" />\n";
-        s += "<p>" + names[parseInt(arr[i].id)] + (arr[i].hazardless ? "" : "") + "</p></div>\n"; //removed symbol as it was redundant here
+        s += "<p>" + names[parseInt(arr[i].id)] + (arr[i].hazardless ? " ¬" : "") + "</p></div>\n"; //removed symbol as it was redundant here
         ret += s;
     }
     return ret;
