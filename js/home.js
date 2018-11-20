@@ -71,10 +71,10 @@ function init(data) {
     for (let i = 0; i < divs.length; i++) {
         divs[i].innerHTML = "";
     }
-    for (let i = divs.length - 1; i >= 2; i--) {
+    for (let i = divs.length - 1; i >= 0; i--) {
         section.removeChild(divs[i]);
     }
-    let currBucket = 2;
+    let currBucket = 0;
     while (section.getElementsByTagName("div").length < data.length) {
         let newDiv = document.createElement("div");
         newDiv.id = "bucket" + currBucket.toString();
@@ -102,7 +102,7 @@ function init(data) {
 
 function initFromDataMap(key) {
     init(decode(dataMap[key]));
-    document.getElementsByTagName("h1")[0].innerHTML = "Smash Bros Stage Striking";
+    document.getElementsByTagName("h1")[0].innerHTML = "SSBU Stage Striking";
 }
 
 //Get the headers for Stage Buckets. If > 2, return undefined, as a list of "Bucket X" will be created instead
