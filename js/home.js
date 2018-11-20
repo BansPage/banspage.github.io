@@ -1,10 +1,7 @@
+//toggle css struck class
 function toggle(id) {
     let img = document.getElementById("i" + id.toString());
-    if (img.classList.contains("struck")) {
-        img.classList.remove("struck");
-    } else {
-        img.classList.add("struck");
-    }
+    img.classList.toggle("struck");
 }
 
 
@@ -25,6 +22,7 @@ function getURLParameters() {
     return decode(param.toString());
 }
 
+// Create stage objects from string
 function decode(code) {
     let buckets = code.split("|");
 
@@ -66,8 +64,7 @@ function generateURLParameters(data) {
     return parameterString;
 }
 
-
-
+// Load stage buckets from array of objects
 function init(data) {
     let section = document.getElementById("buckets");
     let divs = section.getElementsByTagName("div");
@@ -103,11 +100,12 @@ function init(data) {
     document.getElementsByTagName("h1")[0].innerHTML = "Custom Stagelist";
 }
 
-function initFromDataMap(ind) {
-    init(decode(dataMap[ind]));
+function initFromDataMap(key) {
+    init(decode(dataMap[key]));
     document.getElementsByTagName("h1")[0].innerHTML = "Smash Bros Stage Striking";
 }
 
+//Get the headers for Stage Buckets. If > 2, return undefined, as a list of "Bucket X" will be created instead
 function getHeaders(len) {
     if (len == 1) {
         return ["Starters"];
@@ -117,6 +115,7 @@ function getHeaders(len) {
     return undefined;
 }
 
+//Create the Inner HTML of one Stage Bucket
 function getInnerHtml(arr, offset) {
     let ret = "";
     for (let i = 0; i < arr.length; i++) {
@@ -131,3 +130,36 @@ function getInnerHtml(arr, offset) {
     return ret;
 }
 
+//read stage code from URL, fill stage buckets accordingly. Pull from dataMap otherwise.
+function loadFromURL() {
+    let generated = getURLParameters(); //try to read from URL
+	if (generated) {
+		init(generated);
+		let urlString = window.location.href;
+		let url = new URL(urlString);
+		let param = url.searchParams.get("s");
+		document.getElementById("stageCode").value = param;
+	} else {
+		initFromDataMap(Object.keys(dataMap)[0]); //load the first code from the dataMap
+	}
+}
+
+//Redirect to Creation page, with current stageCode.
+function gotoCreate() {
+	let stageCode = document.getElementById("stageCode").value;
+	if (stageCode)
+		window.location.href = "./create/index.html?s=" + stageCode;
+	else {
+		window.location.href="./create/index.html";
+	}
+}
+
+//Set id "precreated" to the list of stagelists from DataMap.
+function populateCommunityList() {
+    let htmlString = "";
+    let keys = Object.keys(dataMap);
+    for (let i = 0; i < keys.length; i++) {
+        htmlString += "<li><a onclick=\"initFromDataMap('" + keys[i] + "')\" href=\"#\">" + keys[i] + " Stagelist</a></li>\n";
+    }
+    document.getElementById("precreated").innerHTML = htmlString;
+}

@@ -16,12 +16,12 @@
 	<meta name="viewport" content="width=device-width" />
 	<meta charset="UTF-8" /> 
 
-	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="../favicon.ico" type="image/x-icon" />
 
-	<script src="../constants.js"></script>
- 	<script src="create.js"></script>
+	<script src="../js/constants.js"></script>
+ 	<script src="../js/create.js"></script>
 </head>
 
 <body class="createBody">
@@ -32,7 +32,6 @@
 
 	<p>The ¬ symbol means a stage should only be played without Stage Hazards.</p>
 	<hr />
-	<!-- <button onclick="generateCode()">Generate Stage Code</button><br /> -->
 	<button onclick="redirect()">Create Stagelist</button><br /><hr />
 	<main id="buckets">
 		<section id="bucket1">
@@ -77,12 +76,7 @@
 	<br /><br />
 	<button onclick="window.location.href='./index.html';">Reset</button>
 
-	<div class="hidden">
-		<label>Paste an existing stage code here, or press "Generate Stage Code" to create one: </label><br />
-		<input type="text" id="generatedCode" /><br />
-		<button class="small" onclick="loadBuckets()">Load Creator from Code</button><br />
-	</div>
-
+	<input type="text" class="hidden" id="generatedCode" /><br />
 	<footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
 		<p><a href="../index.html">Home</a> | <a href="./index.html">Stagelist Creator</a> | <a href="../about.html">About</a></p>
@@ -91,25 +85,7 @@
 </body>
 
 <script>
-	
-
-	let urlString = window.location.href;
-    let url = new URL(urlString);
-    let nolimits = url.searchParams.get("nolimits");
-    let stageCode = url.searchParams.get("s");
-    if (nolimits) {
-    	whitelist = names;
-    	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
-    	document.getElementById("unlimited").classList.remove("hidden");
-    	document.getElementById("limited").classList.add("hidden");
-    }
-
-    loadSelects();
-
-    if (stageCode) {
-    	document.getElementById("generatedCode").value = stageCode;
-    	console.log(document.getElementById("generatedCode").value);
-    	loadBuckets();
-    	document.getElementById("generatedCode").value = stageCode;
-    }
+	setLimits(); //read ?nolimits and toggle settings if needed
+    loadSelects(); //populate all existing dropdowns on screen. will redirect to nolimits if stage ID not found in whitelist
+	loadFromURL(); //try to populate from URL
 </script>

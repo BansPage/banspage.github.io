@@ -1,4 +1,4 @@
-let dataMap = [];
+let dataMap = {};
 let indexToInit = 1;
 
 const names = [
@@ -22,13 +22,7 @@ let whitelist = [
     "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle"
 ];
 
-const smashadelphia = "1h-44h-3h-40h-33h-36h-85h|19h-37h-94h-79h-66h-12h-77h"
-const xanadu = "1h-3h-39h-44h-40h|33h-77h-66h-42h-85h-79h-36h";
-const twogg = "1h-3h-40h-44h-79h-37h-39h|85h-42h-83h-33h-36h-66h";
-const ori = "1-3-44-37-40h-20-39h|85-42h-36h-77h-66h-79h-17h"
-
-
-dataMap.push(smashadelphia);
-dataMap.push(xanadu);
-dataMap.push(twogg);
-dataMap.push(ori);
+dataMap['Smashadelphia'] = "1h-44h-3h-40h-33h-36h-85h|19h-37h-94h-79h-66h-12h-77h";
+dataMap["Xanadu"] = "1h-3h-39h-44h-40h|33h-77h-66h-42h-85h-79h-36h";
+dataMap["2GG"] = "1h-3h-40h-44h-79h-37h-39h|85h-42h-83h-33h-36h-66h";
+dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h|85-42h-36h-77h-66h-79h-17h"

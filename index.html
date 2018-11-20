@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html>
+
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129285594-1"></script>
@@ -17,48 +18,45 @@
     <meta name="viewport" content="width=device-width" />
     <meta charset="UTF-8" /> 
 
- 	<link rel="stylesheet" type="text/css" href="style.css" />
+ 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
  	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
- 	<script src="constants.js"></script>
- 	<script src="logic.js"></script>
+ 	<script src="./js/constants.js"></script>
+ 	<script src="./js/home.js"></script>
 </head>
+
 <body>
-    <h1>Smash Bros Stage Striking</h1>
+    <h1>SSBU Stage Striking</h1>
 
     <p>
     	Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are day 1 lists, which are subject to change as community decides on legal stages.)
-    </p>
+	</p>
+	
+	<noscript>
+		<p>This site uses basic Javascript to function - no big external libraries! Please enable Javascript to use the site.</p>
+	</noscript>
 
+	<!-- Stage Buckets (populated by JS) -->
     <section id="buckets">
 	    <div id="bucket0"></div>
 	    <div id="bucket1"></div>
 	</section>
 
-    <section>
-    	 <p><img src="dotted.jpg" />¬ = Hazardless</p>
-    </section>
+	<p><img src="dotted.jpg" />¬ = Hazardless</p>
 
     <br /><br /><hr />
 
-    <div class="hidden">
-	    <label>Stage Code: </label><input type="text" id="stageCode" /> <br />
-	</div>
-
-    <button class="small" onclick="gotoCreate()">Edit Stagelist</button>
+	<button class="small" onclick="gotoCreate()">Edit Stagelist</button>
+	
     <p>
     	Community Created Stagelists:<br />
-    	<ul>
-	    	<li><a onclick="initFromDataMap(0)" href="#">SMASHADELPHIA Stagelist</a></li>
-	    	<li><a onclick="initFromDataMap(1)" href="#">Xanadu Stagelist</a></li>
-	    	<li><a onclick="initFromDataMap(2)" href="#">2GG's Stagelist</a></li>
-	    	<li><a onclick="initFromDataMap(3)" href="#">Ori's (Michigan TO) Stagelist</a></li>
-	    </ul>
+    	<ul id="precreated"></ul>
     </p>
 
     <h2><a href="./create/index.html">Create your own stagelist!</a></h2> 
 
+	<input class="hidden" type="text" id="stageCode" />
     <footer>
 		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
 		<p><a href="./index.html">Home</a> | <a href="./create/index.html">Stagelist Creator</a> | <a href="./about.html">About</a></p>
@@ -68,31 +66,7 @@
 </html>
 
 <script>
-
-let generated = getURLParameters(); //try to read from URL
-if (generated) {
-	init(generated);
-	let urlString = window.location.href;
-    let url = new URL(urlString);
-    let param = url.searchParams.get("s");
-    document.getElementById("stageCode").value = param;
-} else {
-	initFromDataMap(0);
-}
-
-function load() {
-	let stageCode = document.getElementById("stageCode").value;
-	if (stageCode)
-		window.location.href = "./index.html?s=" + stageCode;
-}
-
-function gotoCreate() {
-	let stageCode = document.getElementById("stageCode").value;
-	if (stageCode)
-		window.location.href = "./create/index.html?s=" + stageCode;
-	else {
-		window.location.href="./create/index.html";
-	}
-}
-
+	//after DOM load
+	loadFromURL();
+	populateCommunityList();
 </script>

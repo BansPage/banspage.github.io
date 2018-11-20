@@ -1,4 +1,6 @@
 let currentBucketIndex = 2;
+
+// Add Stage to Bucket
 function addStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
@@ -15,6 +17,7 @@ function addStage(ind) {
 	div.appendChild(document.createElement("br"));
 }
 
+// Remove Stage from Bucket
 function removeStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
@@ -35,6 +38,7 @@ function removeStage(ind) {
 	div.removeChild(div.lastChild);
 }
 
+// Create new Bucket
 function addBucket() {
 	currentBucketIndex += 1;
 	let main = document.getElementById("buckets");
@@ -52,6 +56,7 @@ function addBucket() {
 	setFirstBucketHeaders();
 }
 
+// Create the interior of a dropdown
 function getSelectInner() {
 	let htmlString = "<option value=\"\">None</option>\n";
 	for (let i = 1; i < whitelist.length; i++) {
@@ -62,6 +67,7 @@ function getSelectInner() {
 	return htmlString;
 }
 
+// Perform getSelectInner() on all Dropdowns
 function loadSelects() {
 	let selects = document.getElementsByTagName("select");
 	for (let i = 0; i < selects.length; i++) {
@@ -75,11 +81,13 @@ function loadSelects() {
 	}
 }
 
+// Check if stage is present in whitelist
 function validStage(s) {
 	s = parseInt(s.split("h")[0]);
 	return whitelist.indexOf(names[s]) > 0;
 }
 
+// Keep resetting Starter/Counterpick headers
 function setFirstBucketHeaders() {
 	if (document.getElementById("buckets").getElementsByTagName("section").length == 2) {
 		document.getElementById("header1").innerHTML = "Starters";
@@ -90,6 +98,7 @@ function setFirstBucketHeaders() {
 	}
 }
 
+// Generate Code from buckets and dropdowns
 function generateCode() {
 	let main = document.getElementById("buckets");
 	let sections = main.getElementsByTagName("section");
@@ -121,6 +130,7 @@ function generateCode() {
 	return resultString;
 }
 
+// Load buckets from code
 function loadBuckets() {
 	let code = document.getElementById("generatedCode").value;
 	let bucketCodes = code.split("|");
@@ -170,10 +180,38 @@ function loadBuckets() {
 	document.getElementById("generatedCode").value = "";
 }
 
+// Redirect to homepage with generatedCode
 function redirect() {
 	generateCode();
 	let v = document.getElementById("generatedCode").value;
 
 	if (v)
 		window.location.href = "../index.html?s=" + v;
+}
+
+// Set page to noLimits if applicable
+function setLimits() {
+	let urlString = window.location.href;
+    let url = new URL(urlString);
+    let nolimits = url.searchParams.get("nolimits");
+    let stageCode = url.searchParams.get("s");
+    if (nolimits) {
+    	whitelist = names;
+    	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
+    	document.getElementById("unlimited").classList.remove("hidden");
+    	document.getElementById("limited").classList.add("hidden");
+    }
+}
+
+// Load buckets from URL ?s parameter
+function loadFromURL() {
+	let urlString = window.location.href;
+	let url = new URL(urlString);
+	let stageCode = url.searchParams.get("s");
+	if (stageCode) {
+    	document.getElementById("generatedCode").value = stageCode;
+    	console.log(document.getElementById("generatedCode").value);
+    	loadBuckets();
+    	document.getElementById("generatedCode").value = stageCode;
+    }
 }

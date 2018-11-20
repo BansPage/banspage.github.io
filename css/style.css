@@ -5,12 +5,14 @@ body {
     background-repeat: repeat;
 }
 
+/* Body of the Create Page */
 .createBody {
     background-image: url("bg_inverted.png");
     background-repeat: repeat;
     color: white;
 }
 
+/* Body of the About Page */
 .about {
     width: 50vw;
     background-color: #eeeeee99;
@@ -20,44 +22,41 @@ body {
     padding: 10px;
 }
 
-img {
-    width: 100px;
+/* Stage Image display on Home */
+.stage img {
+    width: 110px;
     height: auto;
     border-radius: 0.5em;
     margin-right: 10px;
     margin-bottom: 0px;
 }
 
-div p {
-    max-width: 100px;
-}
-
-section img {
-	border-radius: 0;
-	display: inline;
-	padding-left: -5px;
-}
-
-.struck {
-    filter: grayscale(100%);
-    opacity: 0.65;
-}
-
-.hazardless {
-    border: 4px dashed blue;
-    width: 95px;
-}
-
+/* Stage div */
 .stage {
     display: inline-block;
     vertical-align: top;
     margin-bottom: 0px;
 }
 
+/* Stage Name */
 .stage p {
     padding: 0;
     margin: 0;
+    max-width: 110px;
 }
+
+/* Struck-out Stage */
+.struck {
+    filter: grayscale(100%);
+    opacity: 0.65;
+}
+
+/* Hazardless Stages get a blue dotted outline */
+.hazardless {
+    border: 4px dashed blue;
+    width: 102px;
+}
+
 
 h2 {
     font-size: 24px;
@@ -72,16 +71,14 @@ footer {
     opacity: 0.75;
 }
 
+/* Stagelist Builder dropdown */
 select {
     display: inline-block;
+    font-size: 25px;
+    margin-bottom: 4px;
 }
 
-main div {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Community List styling */
 ul {
     list-style: none;
     padding-left: 0px;
@@ -96,10 +93,6 @@ li {
     display: none;
 }
 
-select {
-    font-size: 25px;
-    margin-bottom: 4px;
-}
 
 button {
     font-size: 25px;
@@ -109,23 +102,21 @@ button {
     font-size: 18px;
 }
 
-input {
-    width: 40%;
-    text-align: center;
-}
-
+/* Stage Bucket + and - buttons */
 section button {
     border-radius: 0.5em;
     min-width: 100px;
     font-size: 40px;
 }
 
+/* Stagelist Creator Checkboxes */
 section input {
     width: auto;
     margin-left: 8px;
     transform: scale(1.5);
 }
 
+/* Stagelist Creator Checkbox hazardless display */
 section input + label {
     opacity: 0;
     font-size: 30px;
@@ -135,30 +126,26 @@ input:checked + label {
     opacity: 1;
 }
 
+/* Stagelist Creator every-other-section styling POC */
+section:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile */
 @media only screen and (max-width: 1080px) {
-    img {
+    .stage img {
         width: 15vw;
         margin-right: 2px;
     }
-
-    input {
-        width: 80%;
-        text-align: center;
+    .stage img + p {
+        max-width: 15vw;
+        font-size: 11px;
+        line-height: 12px;
     }
 
     .hazardless {
         width: 14vw;
         border: 2px dotted blue;
-    }
-
-    div p {
-        font-size: 10px;
-        max-width: 15vw;
-        line-height: 12px;
-    }
-
-    main div {
-        width: 100%;
     }
 
     .about {
