@@ -83,12 +83,7 @@ function init(data) {
     }
 
     let headers = getHeaders(data.length);
-    if (!headers) {
-        headers = [];
-        for (let i = 0; i < data.length; i++) {
-            headers.push("Bucket " + (i + 1).toString());
-        }
-    }
+
     let offset = 0;
     for (let i = 0; i < data.length; i++) {
         let htmlString = "<h2>" + headers[i] + "</h2>\n";
@@ -112,7 +107,11 @@ function getHeaders(len) {
     } else if (len == 2) {
         return ["Starters", "Counterpicks"];
     }
-    return undefined;
+    headers = [];
+    for (let i = 0; i < len; i++) {
+        headers.push("Bucket " + (i + 1).toString());
+    }
+    return headers;
 }
 
 //Create the Inner HTML of one Stage Bucket
