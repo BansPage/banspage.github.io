@@ -5,34 +5,68 @@ function addStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
 
-	let newSelect = document.createElement("SELECT");
+	let newStage = document.createElement("div");
+	newStage.classList.add("field");
+	newStage.classList.add("is-grouped");
+	newStage.classList.add("is-grouped-centered");
+
+	// Select
+	let newSelectControl = document.createElement("p");
+	newSelectControl.classList.add("control");
+
+	let newSelectDiv = document.createElement("div");
+	newSelectDiv.classList.add("select");
+
+	let newSelect = document.createElement("select");
 	newSelect.innerHTML = getSelectInner();
-	div.appendChild(newSelect);
-	let newCheckbox = document.createElement("input");
-	newCheckbox.type = "checkbox";
-	div.appendChild(newCheckbox);
+
+	newSelectDiv.appendChild(newSelect);
+	newSelectControl.appendChild(newSelectDiv);
+	newStage.appendChild(newSelectControl);
+
+	// Checkbox/Switch
+	let newCheckControl = document.createElement("p");
+	newCheckControl.classList.add("control");
+
+	let newCheckDiv = document.createElement("div");
+	newCheckDiv.classList.add("field");
+
+	let newCheck = document.createElement("input");
+	let checkName = "stageSwtich" + 1; //IMPLEMENT ID SYSTEM HERE
+	newCheck.id = checkName;
+	newCheck.name = checkName;
+	newCheck.classList.add("switch");
+	newCheck.type = "checkbox"
+	newCheck.checked = false;
+
 	let newLabel = document.createElement("label");
-	newLabel.innerHTML = " ¬";
-	div.appendChild(newLabel);
-	div.appendChild(document.createElement("br"));
+	newLabel.htmlFor = checkName;
+	newLabel.innerHTML = "¬";
+
+	newCheckDiv.appendChild(newCheck);
+	newCheckDiv.appendChild(newLabel);
+	newCheckControl.appendChild(newCheckDiv);
+	newStage.appendChild(newCheckControl);
+
+	div.appendChild(newStage);
 }
 
 // Remove Stage from Bucket
 function removeStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
-	if (div.getElementsByTagName("SELECT").length <= 1 && ind > 2) {
+	if (div.getElementsByTagName("div").length <= 1 && ind > 2) {
 		bucket.remove();
 		if (ind == currentBucketIndex) {
 			currentBucketIndex -= 1;
 		}
 		setFirstBucketHeaders();
 		return;
-	} else if (div.getElementsByTagName("SELECT").length <= 1) {
+	} else if (div.getElementsByTagName("div").length <= 1) {
 		return;
 	}
 
-	while (div.lastChild.tagName != "SELECT") {
+	while (div.lastChild.tagName != "div") {
 		div.removeChild(div.lastChild);
 	}
 	div.removeChild(div.lastChild);

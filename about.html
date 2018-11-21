@@ -1,43 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129285594-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bans.About</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-	  gtag('config', 'UA-129285594-1');
-	</script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
 
-    <title>About Bans.Page</title>
+    <script src="./js/constants.js"></script>
+ 	  <script src="./js/home.js"></script>
+  </head>
 
-    <meta name="description" content="Ban stages for Super Smash Bros!" />
-    <meta name="viewport" content="width=device-width" />
-    <meta charset="UTF-8" /> 
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bans.page">
+          <img src="img/Logo.png" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">Home</a>
+          <a class="navbar-item">Stagelist Builder</a>
+          <a class="navbar-item">About</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Presets</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item">SMASHADELPHIA Stagelist</a>
+              <a class="navbar-item">Xanadu Stagelist</a>
+              <a class="navbar-item">2GG's Stagelist</a>
+              <a class="navbar-item">Ori's (Michigan TO) Stagelist</a>
+            </div>
+          </div>
+        </div>
+    </nav>
 
- 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
- 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<section class="section">
+    	<div class="container">
+      		<h1 class="title is-2">About Bans.Page</h1>
+      		<p>The Bans Page was designed as an answer to the heated debate surrounding Super Smash Bros. Ultimate's legal stagelist towards its release. One concern people had with a larger stage pool was that it would make the banning process more difficult. The homepage of Bans.Page was designed to fix this issue. The biggest part of the debate, however, was creating and demonstrating one's opinions about the legal stagelist. Some people wanted to be very restrictive with their list, to make things easy. Others wanted all stages to be used with Hazards Off to reduce the potential for mistakes during matches. A few individuals have brought up the idea of "Stage Pools", which are individual buckets of stages that would be banned as groups, to facilitate a larger stagelist.</p>
+	  		<br/><p>Bans.Page and its Stagelist Creator were designed to facilitate all of that. Stagelists can be created and shared, in both the standard Starters-Counterpicks fashion, or the newer Stage Bucket method. These lists can be shared via codes or links. Additionally, the homepage has a few hardcoded lists from figureheads in the Smash community.</p>
+	  		<br/><p>As Smash Ultimate is released and tournaments are held, we'd love it if Bans.Page could be useful to the community. Its snappy name, low filesize, and customizability could make it an easy tool to facilitate matches. We could set the home screen's default layout to a tournament's legal ruleset while the tournament was going on, for the convenience of TOs and Players alike, for instance.</p>
+	  		<br/><p>Overall, Bans.Page was built with the Smash Community in mind. If you have any ideas about how to improve it, or want to reach out to us about its usage, feel free to do so on Twitter. Our handles are <a href="https://twitter.com/WaveParadigm">@WaveParadigm</a> and <a href="https://twitter.com/VGInvis">@VGInvis</a>.</p>
+		</div>
+	</section>
 
-</head>
+    <footer class="footer has-text-centered">
+      <div class="container">
+         <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <p>
+              <strong class="has-text-weight-semibold">
+                <a href="https://bans.page">BansPage</a>
+              </strong>
+            </p>
+            <p>
+              <small>
+                  <p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
+              </small>
+            </p>
+            <p style="margin-top: 1rem;">
+              <a href="http://bulma.io">
+                <img src="./img/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-<body>
-	<main class="about">
-		<h1>About Bans.Page</h1>
-		<p>The Bans Page was designed as an answer to the heated debate surrounding Super Smash Bros. Ultimate's legal stagelist towards its release. One concern people had with a larger stage pool was that it would make the banning process more difficult. The homepage of Bans.Page was designed to fix this issue. The biggest part of the debate, however, was creating and demonstrating one's opinions about the legal stagelist. Some people wanted to be very restrictive with their list, to make things easy. Others wanted all stages to be used with Hazards Off to reduce the potential for mistakes during matches. A few individuals have brought up the idea of "Stage Pools", which are individual buckets of stages that would be banned as groups, to facilitate a larger stagelist.</p>
+    <input class="hidden" type="text" id="stageCode" />
+  </body>
 
-		<p>Bans.Page and its Stagelist Creator were designed to facilitate all of that. Stagelists can be created and shared, in both the standard Starters-Counterpicks fashion, or the newer Stage Bucket method. These lists can be shared via codes or links. Additionally, the homepage has a few hardcoded lists from figureheads in the Smash community.</p>
+  <script>
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-		<p>As Smash Ultimate is released and tournaments are held, we'd love it if Bans.Page could be useful to the community. Its snappy name, low filesize, and customizability could make it an easy tool to facilitate matches. We could set the home screen's default layout to a tournament's legal ruleset while the tournament was going on, for the convenience of TOs and Players alike, for instance.</p>
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
 
-		<p>Overall, Bans.Page was built with the Smash Community in mind. If you have any ideas about how to improve it, or want to reach out to us about its usage, feel free to do so on Twitter. Our handles are <a href="https://twitter.com/WaveParadigm">@WaveParadigm</a> and <a href="https://twitter.com/VGInvis">@VGInvis</a>.</p>
-	</main>
-	<footer>
-		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
-		<p><a href="./index.html">Home</a> | <a href="./create/index.html">Stagelist Creator</a> | <a href="./about.html">About</a></p>
-		<p>(c) 2018</p>
-	</footer>
-</body>
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+    }
+
+    loadFromURL();
+	  populateCommunityList();
+  </script>
 </html>

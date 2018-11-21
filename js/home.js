@@ -86,7 +86,7 @@ function init(data) {
 
     let offset = 0;
     for (let i = 0; i < data.length; i++) {
-        let htmlString = "<h2>" + headers[i] + "</h2>\n";
+        let htmlString = "<h2 class=\"title is-4\">" + headers[i] + "</h2>\n";
         htmlString += getInnerHtml(data[i], offset);
         offset += data[i].length;
         document.getElementById("bucket" + i.toString()).innerHTML = htmlString;
@@ -118,7 +118,7 @@ function getHeaders(len) {
 function getInnerHtml(arr, offset) {
     let ret = "";
     for (let i = 0; i < arr.length; i++) {
-        let s = "<div class=\"stage\"><img id=\"i" + (i + offset).toString() + "\" onmousedown=\"toggle(" + (i + offset).toString() + ")\" ";
+        let s = "<div class=\"box stage\" onmousedown=\"toggle(" + (i + offset).toString() + ")\" ><img id=\"i" + (i + offset).toString() + "\"";
         if (arr[i].hazardless) {
             s += "class=\"hazardless\" ";
         }

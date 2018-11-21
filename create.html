@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bans.Page</title>
+    <title>Bans.Create</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
 
     <script src="./js/constants.js"></script>
- 	  <script src="./js/home.js"></script>
+ 	<script src="./js/create.js"></script>
   </head>
 
   <body>
@@ -31,7 +31,7 @@
       <div id="navbarBasic" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="./index.html">Home</a>
-          <a class="navbar-item" href="./create.html">Stagelist Builder</a>
+          <a class="navbar-item" href="./create/index.html">Stagelist Builder</a>
           <a class="navbar-item" href="./about.html">About</a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Presets</a>
@@ -45,14 +45,37 @@
         </div>
     </nav>
 
-    <div class="container has-text-centered">
-      <h1 class="title is-2">SSBU Stage Striking</h1>
-      <p>Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are day 1 lists, which are subject to change as community decides on legal stages.)</p>
-    </div>
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title is-2">Create Your Own Stagelist!</h1>
+            <p>Welcome to the Bans.Page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.</p>
+            <br/><p>The ¬ symbol means a stage should only be played without Stage Hazards.</p>
+        </div>
+    </section>
 
-    <div class="container has-text-centered">
-      <section id="buckets"></section>
-      <a class="button is-primary is-medium" href="javascript:gotoCreate()">Edit StageList</a>
+    <div id="buckets" class="container has-text-centered">
+        <section id="bucket1" class="section">
+            <h2 class="title is-4">Starters</h2>
+            <div>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <div class="select">
+                            <select>
+                            </select>
+                        </div>
+                    </p>
+                    <p class="control">
+                        <div class="field">
+                            <input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
+                            <label for="switchExample">¬</label>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <a class="button is-info" href="javascript:addStage(1)">Add</a>
+            <a class="button is-danger" href="javascript:removeStage(1)">Remove</a>
+        </section>
+        <a class="button" href="javascript:addBucket()">Add Stage Bucket</a>
     </div>
 
     <footer class="footer has-text-centered">

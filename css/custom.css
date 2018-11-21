@@ -1,0 +1,91 @@
+.navbar-item.navbar-center
+{
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Body of the Create Page */
+.createBody {
+    background-image: url("bg_inverted.png");
+    background-repeat: repeat;
+    color: white;
+}
+
+/* Body of the About Page */
+.about {
+    width: 50vw;
+    background-color: #eeeeee99;
+    border-radius: 0.25em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+/* Stage Image display on Home */
+.stage img {
+    width: 110px;
+    height: auto;
+    border-radius: 0.5em;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+/* Stage div */
+.stage {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0px;
+}
+
+/* Stage Name */
+.stage p {
+    padding: 0;
+    margin: 0;
+    max-width: 110px;
+}
+
+/* Struck-out Stage */
+.struck {
+    filter: grayscale(100%);
+    opacity: 0.65;
+}
+
+/* Hazardless Stages get a blue dotted outline */
+.hazardless {
+    border: 4px dashed blue;
+    width: 102px;
+}
+
+/* Stagelist Builder dropdown */
+select {
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mobile */
+@media only screen and (max-width: 1080px) {
+    .stage img {
+        width: 15vw;
+        margin-right: 2px;
+    }
+    .stage img + p {
+        max-width: 15vw;
+        font-size: 11px;
+        line-height: 12px;
+    }
+
+    .hazardless {
+        width: 14vw;
+        border: 2px dotted blue;
+    }
+
+    .about {
+        width: 95%;
+    }
+}

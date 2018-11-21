@@ -18,12 +18,11 @@ const names = [
 let whitelist = [
     "None", "Battlefield", "Final Destination", "Kongo Jungle", "Dream Land", "Rainbow Cruise", "Kongo Falls", "Brinstar", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium", "Delfino Plaza",
     "WarioWare, Inc.", "Norfair", "Frigate Orpheon", "Yoshi's Island (Brawl)", "Halberd", "Lylat Cruise", "Pokemon Stadium 2", "Castle Siege", "Smashville", "Unova Pokemon League", "Prism Tower",
-    "Arena Ferox", "PictoChat 2", "Mushroom Kingdom U", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
+    "Arena Ferox", "PictoChat 2", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
     "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle"
 ];
 
-dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h|85-42h-36h-77h-66h-79h-17h";
-dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-79h|33h-39h-77h-66h-42h-85h-36h-37h"
-dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h|19h-37h-94h-79h-66h-12h-77h";
+dataMap['Smashadelphia'] = "1h-44h-3h-40h-33h-36h-85h|19h-37h-94h-79h-66h-12h-77h";
 dataMap["Xanadu"] = "1h-3h-39h-44h-40h|33h-77h-66h-42h-85h-79h-36h";
 dataMap["2GG"] = "1h-3h-40h-44h-79h-37h-39h|85h-42h-83h-33h-36h-66h";
+dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h|85-42h-36h-77h-66h-79h-17h"
