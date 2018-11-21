@@ -5,34 +5,30 @@ function addStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
 
-	let newStage = document.createElement("div");
+	let newStage = document.createElement("article");
 	newStage.classList.add("field");
 	newStage.classList.add("is-grouped");
 	newStage.classList.add("is-grouped-centered");
 
 	// Select
-	let newSelectControl = document.createElement("p");
-	newSelectControl.classList.add("control");
-
 	let newSelectDiv = document.createElement("div");
 	newSelectDiv.classList.add("select");
 
 	let newSelect = document.createElement("select");
 	newSelect.innerHTML = getSelectInner();
-
 	newSelectDiv.appendChild(newSelect);
-	newSelectControl.appendChild(newSelectDiv);
-	newStage.appendChild(newSelectControl);
+
+	newStage.appendChild(newSelectDiv);
 
 	// Checkbox/Switch
-	let newCheckControl = document.createElement("p");
-	newCheckControl.classList.add("control");
+	//let newCheckControl = document.createElement("p");
+	//newCheckControl.classList.add("control");
 
 	let newCheckDiv = document.createElement("div");
 	newCheckDiv.classList.add("field");
 
 	let newCheck = document.createElement("input");
-	let checkName = "stageSwtich" + 1; //IMPLEMENT ID SYSTEM HERE
+	let checkName = Date.now().toString();
 	newCheck.id = checkName;
 	newCheck.name = checkName;
 	newCheck.classList.add("switch");
@@ -41,12 +37,12 @@ function addStage(ind) {
 
 	let newLabel = document.createElement("label");
 	newLabel.htmlFor = checkName;
-	newLabel.innerHTML = "¬";
+	newLabel.innerHTML = "<p>¬</p>";
 
 	newCheckDiv.appendChild(newCheck);
 	newCheckDiv.appendChild(newLabel);
-	newCheckControl.appendChild(newCheckDiv);
-	newStage.appendChild(newCheckControl);
+
+	newStage.appendChild(newCheckDiv);
 
 	div.appendChild(newStage);
 }
@@ -55,21 +51,19 @@ function addStage(ind) {
 function removeStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
-	if (div.getElementsByTagName("div").length <= 1 && ind > 2) {
+
+	let stages = div.getElementsByTagName("article");
+	if (stages.length <= 1 && ind > 2) {
 		bucket.remove();
 		if (ind == currentBucketIndex) {
 			currentBucketIndex -= 1;
 		}
 		setFirstBucketHeaders();
 		return;
-	} else if (div.getElementsByTagName("div").length <= 1) {
+	} else if (stages.length <= 1) {
 		return;
 	}
-
-	while (div.lastChild.tagName != "div") {
-		div.removeChild(div.lastChild);
-	}
-	div.removeChild(div.lastChild);
+	div.removeChild(stages[stages.length - 1]);
 }
 
 // Create new Bucket
