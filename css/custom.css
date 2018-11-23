@@ -68,11 +68,11 @@ select {
     display: none;
 }
 
-.field input + label p {
+.field input + label + p {
     opacity: 0;
 }
 
-.field input:checked + label p {
+.field input:checked + label + p {
     opacity: 1 !important;
 }
 

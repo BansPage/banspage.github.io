@@ -28,7 +28,7 @@ function addStage(ind) {
 	newCheckDiv.classList.add("field");
 
 	let newCheck = document.createElement("input");
-	let checkName = Date.now().toString();
+	let checkName = '_' + Math.random().toString(36).substr(2, 9);
 	newCheck.id = checkName;
 	newCheck.name = checkName;
 	newCheck.classList.add("switch");
@@ -37,12 +37,15 @@ function addStage(ind) {
 
 	let newLabel = document.createElement("label");
 	newLabel.htmlFor = checkName;
-	newLabel.innerHTML = "<p>¬</p>";
+	let newParagraph = document.createElement("P");
+	newParagraph.innerHTML = "¬";
 
 	newCheckDiv.appendChild(newCheck);
 	newCheckDiv.appendChild(newLabel);
+	newCheckDiv.appendChild(newParagraph);
 
 	newStage.appendChild(newCheckDiv);
+	//newStage.appendChild(newParagraph);
 
 	div.appendChild(newStage);
 }
@@ -123,7 +126,7 @@ function setFirstBucketHeaders() {
 	} else {
 		document.getElementById("bucket1").getElementsByTagName("h2")[0].innerHTML = "Bucket 1";
 		document.getElementById("bucket2").getElementsByTagName("h2")[0].innerHTML = "Bucket 2";
-	}
+	} 
 }
 
 // Generate Code from buckets and dropdowns
@@ -226,8 +229,8 @@ function setLimits() {
     if (nolimits) {
     	whitelist = names;
     	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
-    	document.getElementById("unlimited").classList.remove("hidden");
-    	document.getElementById("limited").classList.add("hidden");
+    	//document.getElementById("unlimited").classList.remove("hidden");
+    	//document.getElementById("limited").classList.add("hidden");
     }
 }
 
