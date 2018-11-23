@@ -147,9 +147,9 @@ function loadFromURL() {
 function gotoCreate() {
 	let stageCode = document.getElementById("stageCode").value;
 	if (stageCode)
-		window.location.href = "./create/index.html?s=" + stageCode;
+		window.location.href = "./create.html?s=" + stageCode;
 	else {
-		window.location.href="./create/index.html";
+		window.location.href="./create.html";
 	}
 }
 

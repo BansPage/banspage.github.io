@@ -118,11 +118,11 @@ function validStage(s) {
 // Keep resetting Starter/Counterpick headers
 function setFirstBucketHeaders() {
 	if (document.getElementById("buckets").getElementsByTagName("section").length == 2) {
-		document.getElementById("header1").innerHTML = "Starters";
-		document.getElementById("header2").innerHTML = "Counterpicks";
+		document.getElementById("bucket1").getElementsByTagName("h2")[0].innerHTML = "Starters";
+		document.getElementById("bucket2").getElementsByTagName("h2")[0].innerHTML = "Counterpicks";
 	} else {
-		document.getElementById("header1").innerHTML = "Bucket 1";
-		document.getElementById("header2").innerHTML = "Bucket 2";
+		document.getElementById("bucket1").getElementsByTagName("h2")[0].innerHTML = "Bucket 1";
+		document.getElementById("bucket2").getElementsByTagName("h2")[0].innerHTML = "Bucket 2";
 	}
 }
 
