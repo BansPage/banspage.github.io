@@ -6,9 +6,7 @@ function addStage(ind) {
 	let div = bucket.getElementsByTagName("div")[0];
 
 	let newStage = document.createElement("article");
-	newStage.classList.add("field");
-	newStage.classList.add("is-grouped");
-	newStage.classList.add("is-grouped-centered");
+	newStage.classList.add("field", "is-grouped", "is-grouped-centered");
 
 	// Select
 	let newSelectDiv = document.createElement("div");
@@ -217,7 +215,7 @@ function redirect() {
 	let v = document.getElementById("generatedCode").value;
 
 	if (v)
-		window.location.href = "../index.html?s=" + v;
+		window.location.href = "./index.html?s=" + v;
 }
 
 // Set page to noLimits if applicable

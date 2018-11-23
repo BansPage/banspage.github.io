@@ -27,15 +27,15 @@
     width: 110px;
     height: auto;
     border-radius: 0.5em;
-    margin-right: 10px;
-    margin-bottom: 0px;
 }
 
 /* Stage div */
 .stage {
     display: inline-block;
+    min-height: 200px;
     vertical-align: top;
     margin-bottom: 0px;
+    padding: 8px;
 }
 
 /* Stage Name */
@@ -43,6 +43,7 @@
     padding: 0;
     margin: 0;
     max-width: 110px;
+    user-select: none;
 }
 
 /* Struck-out Stage */
@@ -82,9 +83,11 @@ select {
 
 /* Mobile */
 @media only screen and (max-width: 1080px) {
+    .stage {
+        min-height: 30vw;
+    }
     .stage img {
         width: 15vw;
-        margin-right: 2px;
     }
     .stage img + p {
         max-width: 15vw;

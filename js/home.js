@@ -78,6 +78,8 @@ function init(data) {
     while (section.getElementsByTagName("div").length < data.length) {
         let newDiv = document.createElement("div");
         newDiv.id = "bucket" + currBucket.toString();
+        newDiv.classList.add("has-text-centered");
+        section.appendChild(document.createElement("br"));
         section.appendChild(newDiv);
         currBucket += 1;
     }
@@ -118,7 +120,7 @@ function getHeaders(len) {
 function getInnerHtml(arr, offset) {
     let ret = "";
     for (let i = 0; i < arr.length; i++) {
-        let s = "<div class=\"box stage\" onmousedown=\"toggle(" + (i + offset).toString() + ")\" ><img id=\"i" + (i + offset).toString() + "\"";
+        let s = "<div class=\"card stage\" onmousedown=\"toggle(" + (i + offset).toString() + ")\" ><img id=\"i" + (i + offset).toString() + "\"";
         if (arr[i].hazardless) {
             s += "class=\"hazardless\" ";
         }
