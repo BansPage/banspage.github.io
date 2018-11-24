@@ -5,6 +5,12 @@
     justify-content: center;
 }
 
+main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Body of the Create Page */
 .createBody {
     background-image: url("bg_inverted.png");
@@ -26,16 +32,21 @@
 .stage img {
     width: 110px;
     height: auto;
+    
     border-radius: 0.5em;
 }
 
 /* Stage div */
 .stage {
     display: inline-block;
-    min-height: 200px;
+    min-height: 175px;
     vertical-align: top;
     margin-bottom: 0px;
     padding: 8px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* Stage Name */
@@ -43,7 +54,7 @@
     padding: 0;
     margin: 0;
     max-width: 110px;
-    user-select: none;
+    font-size: 13px;
 }
 
 /* Struck-out Stage */
@@ -69,8 +80,24 @@ select {
     display: none;
 }
 
+.button.is-info {
+    margin-right: 8px;
+}
+
+.field input + label {
+    z-index: 999;
+}
+
 .field input + label + p {
     opacity: 0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -12px;
+    margin-left: -4px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .field input:checked + label + p {
@@ -79,6 +106,25 @@ select {
 
 .select {
     margin-right: 8px;
+}
+
+footer {
+    height: 175px;
+    padding-top: 35px !important;
+}
+
+#limited, #unlimited {
+    width: 60%;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 12px;
+}
+
+#name {
+    width: 175px;
+    text-align: center;
 }
 
 /* Mobile */
@@ -101,6 +147,18 @@ select {
     }
 
     .about {
+        width: 95%;
+    }
+
+    #limited, #unlimited {
+        width: 95%;
+    }
+    
+    #name {
+        width: 95%;
+    }
+
+    main {
         width: 95%;
     }
 }

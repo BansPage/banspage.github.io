@@ -1,0 +1,58 @@
+---
+permalink: /404.html
+---
+
+<!doctype html>
+<html>
+	<head>
+	<title>Bans.Page</title>
+	<meta name="description" content="The Bans Page. Ban stages from premade or custom stagelists." />
+
+	<script src="/js/constants.js"></script>
+		<script>
+			window.onload = function () {
+				try {
+					let isRedirect = false;
+					let redirectLink = "";
+					let s = window.location.href;
+					let hash = s.toLowerCase();
+					hash = hash.replace("https://", "");
+					hash = hash.replace("http://", "");
+					hash = hash.replace("bans.page", "");
+					hash = hash.replace("banspage.github.io", "");
+					hash = hash.replace(/\//g, "");
+					console.log("hash: " + hash);
+
+					let keys = Object.keys(dataMap);
+
+					for (let i = 0; i < keys.length; i++) {
+						let key = keys[i].toLowerCase();
+						let valid = key.startsWith(hash) && hash.length > 1;
+						if (valid) { //ze will redirect to ZeRo, but not z
+							isRedirect = true;
+							console.log(keys[i]);
+							redirectLink = "./index.html#" + dataMap[keys[i]];
+							console.log("dataMap: " + dataMap[keys[i]]);
+						}
+					}
+
+					console.log(isRedirect);
+					console.log("redirectLink: " + redirectLink);
+
+					if (isRedirect) {
+						window.location.href = redirectLink;
+					} else {
+						window.location.href = "./index.html";
+					}
+				} catch (e) {
+					console.log(e);
+					window.location.href = "./index.html";
+				}
+			}
+		</script>
+	</head>
+	<body style="font-size: 14px; font-family: monospace;">
+		Redirecting...
+		<noscript>This 404 page uses JavaScript to redirect you. You have JavaScript disabled -- <a href="https://bans.page">feel free to visit the homepage.</a></noscript>
+	</body>
+</html>

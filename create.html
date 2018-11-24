@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Bans.Create</title>
+    <meta name="description" content="The Bans Page. Create a custom stagelist." />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bans.Create</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
 
     <script src="./js/constants.js"></script>
- 	<script src="./js/create.js"></script>
+ 	  <script src="./js/create.js"></script>
   </head>
 
   <body>
@@ -31,80 +33,60 @@
       <div id="navbarBasic" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="./index.html">Home</a>
-          <a class="navbar-item" href="./create/index.html">Stagelist Builder</a>
+          <a class="navbar-item" href="./create.html">Stagelist Builder</a>
           <a class="navbar-item" href="./about.html">About</a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Presets</a>
-            <div class="navbar-dropdown">
-              <a class="navbar-item">SMASHADELPHIA Stagelist</a>
-              <a class="navbar-item">Xanadu Stagelist</a>
-              <a class="navbar-item">2GG's Stagelist</a>
-              <a class="navbar-item">Ori's (Michigan TO) Stagelist</a>
+            <div class="navbar-dropdown" id="presets">
             </div>
           </div>
         </div>
     </nav>
+    <main>
+      <section class="container">
+          <div class="container has-text-centered">
+              <h1 class="title is-2">Create Your Own Stagelist!</h1>
+              <p>Welcome to the Bans.Page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.</p>
+              <br/><h2 class="subtitle is-4 has-text-weight-bold">The ¬ symbol means a stage should only be played without Stage Hazards.</p><br />
+          </div>
+      </section>
+    </main>
 
-    <section class="section">
-        <div class="container has-text-centered">
-            <h1 class="title is-2">Create Your Own Stagelist!</h1>
-            <p>Welcome to the Bans.Page Stagelist creator! Use the (+) and (-) buttons to add and remove stages from groups. When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.</p>
-            <br/><h2 class="subtitle is-4 has-text-weight-bold">The ¬ symbol means a stage should only be played without Stage Hazards.</p>
-        </div>
+    <div id="buckets" class="container has-text-centered"></div>
+    </br>
+    <section class="container has-text-centered">
+      <a class="button" href="javascript:addBucket()">Add Stage Bucket</a>
     </section>
 
-    <div id="buckets" class="container has-text-centered">
-        <section id="bucket1" class="box">
-            <h2 class="title is-4">Starters</h2>
-            <div>
-                <article class="field is-grouped is-grouped-centered">
-                    <div class="select">
-                        <select>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked" />
-                        <label for="switchExample"></label><p>¬</p>
-                    </div>
-                </article>
-            </div>
-            <a class="button is-info" href="javascript:addStage(1)">Add</a>
-            <a class="button is-danger" href="javascript:removeStage(1)">Remove</a>
-        </section>
-        <section id="bucket2" class="box">
-          <h2 class="title is-4">Counterpicks</h2>
-          <div>
-              <article class="field is-grouped is-grouped-centered">
-                <div class="select">
-                    <select>
-                    </select>
-                </div>
-                <div class="field">
-                    <input id="switchExample2" type="checkbox" name="switchExample2" class="switch" checked="checked" />
-                    <label for="switchExample2"></label><p>¬</p>
-                </div>
-              </article>
-          </div>
-            <a class="button is-info" href="javascript:addStage(2)">Add</a>
-            <a class="button is-danger" href="javascript:removeStage(2)">Remove</a>
-        </section>
+    <br />
+    <section class="container has-text-centered">
+      <hr />
+      <label for="name">Your Name: </label><input class="input" type="text" id="name" onchange="generateCode()" /><br /><br />
+      <a href="javascript:createStagelist()" class="button is-large is-primary">Create Stagelist</a>
+      <hr />
+      <a href="./create.html" class="button">Reset</a>
+      <br /><br />
+      <div id="limited" class="card">
+        <small>This page is currently displaying a more limited list of stages based on what might likely be considered a competitive stage by the community.<br /><br />To view the full list of 103 stages, press the button below.</small>
+        <br /><br />
+        <a class="button" href="./create.html?nolimits=1">View Full Stage Options</a>
       </div>
-    </br>
-      <section class="container has-text-centered">
-        <a class="button" href="javascript:addBucket()">Add Stage Bucket</a>
-      </section>
 
-      <section class="section has-text-centered">
-        <a href="javascript:redirect()" class="button is-large is-primary">Create Stagelist</a>
-      </section>
+      <div id="unlimited" class="card hidden">
+          <small>This page is currently displaying all stages in SSBU.<br /><br />To view a more limited list of likely competitive stages, press the button below.</small>
+          <br /><br />
+          <a class="button" href="./create.html">View Limited Stage Options</a>
+        </div>
+    </section>
+    <br />
 
-      <footer class="footer has-text-centered">
+    <footer class="footer has-text-centered">
       <div class="container">
-         <div class="columns">
+          <div class="columns">
           <div class="column is-8-desktop is-offset-2-desktop">
             <p>
               <strong class="has-text-weight-semibold">
-                <a href="https://bans.page">BansPage</a>
+                <a href="https://bans.page">Bans.Page</a>
               </strong>
             </p>
             <p>
@@ -121,33 +103,11 @@
         </div>
       </div>
     </footer>
-
-    <input class="hidden" type="text" id="generatedCode" />
   </body>
 
   <script>
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-
-        });
-      });
-    }
-
+    enableNavbarBurgers();
+    populateCommunityList();
     setLimits(); //read ?nolimits and toggle settings if needed
     loadSelects(); //populate all existing dropdowns on screen. will redirect to nolimits if stage ID not found in whitelist
 	  loadFromURL(); //try to populate from URL
