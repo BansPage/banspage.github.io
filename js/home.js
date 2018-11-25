@@ -1,3 +1,8 @@
+function hideNotification() {
+    let notification = document.getElementsByClassName("notification");
+    notification[0].classList.add("hidden");
+}
+
 //toggle css struck class
 function toggle(id) {
     let img = document.getElementById("i" + id.toString());

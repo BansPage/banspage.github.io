@@ -9,6 +9,7 @@ main {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 15px;
 }
 
 /* Body of the Create Page */
@@ -128,7 +129,7 @@ footer {
 }
 
 /* Mobile */
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 550px) {
     .stage {
         min-height: 30vw;
     }

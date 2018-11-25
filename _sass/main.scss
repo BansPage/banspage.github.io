@@ -10,17 +10,21 @@
 
 // 2. Set your own initial variables
 // Update the blue shade, used for links
-$blue: #06bcef;
 // Add pink and its invert
-$pink: rgb(255, 111, 15);
-$pink-invert: rgb(223, 223, 223);
+$brown: rgb(255, 104, 25);
+$brown-light: rgb(255, 154, 101);
+
+$mint: rgb(103, 255, 83);
 // Update the sans-serif font family
 $family-sans-serif: "Helvetica", "Arial", sans-serif;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
+$primary: $brown;
+
+$link: $brown-light;
+
+$body-background-color: rgb(240, 240, 240);
 
 // 4. Import the rest of Bulma
 
