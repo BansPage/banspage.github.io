@@ -1,69 +1,106 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129285594-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-129285594-1');
-	</script>
-
+  <head>
     <title>Bans.Page</title>
+    <meta name="description" content="The Bans Page. Ban stages from premade or custom stagelists." />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
-    <meta name="description" content="Ban stages for Super Smash Bros!" />
-    <meta name="viewport" content="width=device-width" />
-    <meta charset="UTF-8" /> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
 
- 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
- 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="./js/constants.js"></script>
+ 	  <script src="./js/home.js"></script>
+  </head>
 
- 	<script src="./js/constants.js"></script>
- 	<script src="./js/home.js"></script>
-</head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bans.page">
+          <img src="img/Logo.png" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="./index.html">Home</a>
+          <a class="navbar-item" href="./create.html">Stagelist Builder</a>
+          <a class="navbar-item" href="./about.html">About</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Presets</a>
+            <div class="navbar-dropdown" id="presets">
+              <!--
+              <a class="navbar-item">SMASHADELPHIA Stagelist</a>
+              <a class="navbar-item">Xanadu Stagelist</a>
+              <a class="navbar-item">2GG's Stagelist</a>
+              <a class="navbar-item">Ori's (Michigan TO) Stagelist</a>
+              -->
+            </div>
+          </div>
+        </div>
+    </nav>
 
-<body>
-    <h1>SSBU Stage Striking</h1>
+    <main>
+      <article class="notification">
+          <button class="delete" onclick=hideNotification()></button>
+          <p>We have recently given the site a visual overhaul, so please send any feedback to <a href="https://twitter.com/WaveParadigm" target="_blank">WaveParadigm</a> or <a href="https://twitter.com/VGInvis" target="_blank">Invis</a>!</p>
+      </article>
 
-    <p>
-    	Click on a stage to strike it. Click a struck stage to unstrike it. Refresh page to reset. (These are day 1 lists, which are subject to change as community decides on legal stages.)
-	</p>
-	
-	<noscript>
-		<p>This site uses basic Javascript to function - no big external libraries! Please enable Javascript to use the site.</p>
-	</noscript>
+      <div class="container has-text-centered">
+        <h1 class="title is-2">SSBU Stage Striking</h1>
+        <p>Click on a stage to strike/unstrike it. Refresh page to reset.</p>
+      </div>
 
-	<!-- Stage Buckets (populated by JS) -->
-    <section id="buckets"></section>
+      <div class="container has-text-centered">
+        <section id="buckets"></section>
+        </br>
+        <a class="button is-medium" href="javascript:gotoCreate()">Edit StageList</a>
+      </div>
 
-	<p><img src="dotted.jpg" />¬ = Hazardless</p>
+      <section class="section has-text-centered">
+          <a class="button is-primary is-large" href="./create.html">Create Your Own Stagelist!</a>
+      </section>
 
-    <br /><br /><hr />
+      <ul id="precreated"></ul>
+    </main>
 
-	<button class="small" onclick="gotoCreate()">Edit Stagelist</button>
-	
-    <p>
-    	Community Created Stagelists:<br />
-    	<ul id="precreated"></ul>
-    </p>
+    <footer class="footer has-text-centered">
+      <div class="container">
+         <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <p>
+              <strong class="has-text-weight-semibold">
+                <a href="https://bans.page">Bans.Page</a>
+              </strong>
+            </p>
+            <p>
+              <small>
+                  <p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
+              </small>
+            </p>
+            <p style="margin-top: 24px;">
+              <a href="http://bulma.io">
+                <img src="./img/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 
-    <h2><a href="./create/index.html">Create your own stagelist!</a></h2> 
-
-	<input class="hidden" type="text" id="stageCode" />
-    <footer>
-		<p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
-		<p><a href="./index.html">Home</a> | <a href="./create/index.html">Stagelist Creator</a> | <a href="./about.html">About</a></p>
-		<p>(c) 2018</p>
-	</footer>
-</body>
+  <script>
+    enableNavbarBurgers();
+    loadFromURL();
+	  populateCommunityList();
+  </script>
 </html>
-
-<script>
-	//after DOM load
-	loadFromURL();
-	populateCommunityList();
-</script>

@@ -18,12 +18,49 @@ const names = [
 let whitelist = [
     "None", "Battlefield", "Final Destination", "Kongo Jungle", "Dream Land", "Rainbow Cruise", "Kongo Falls", "Brinstar", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium", "Delfino Plaza",
     "WarioWare, Inc.", "Norfair", "Frigate Orpheon", "Yoshi's Island (Brawl)", "Halberd", "Lylat Cruise", "Pokemon Stadium 2", "Castle Siege", "Smashville", "Unova Pokemon League", "Prism Tower",
-    "Arena Ferox", "PictoChat 2", "Mushroom Kingdom U", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
+    "Arena Ferox", "PictoChat 2", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
     "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle"
 ];
 
-dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h|85-42h-36h-77h-66h-79h-17h";
-dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-79h|33h-39h-77h-66h-42h-85h-36h-37h"
-dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h|19h-37h-94h-79h-66h-12h-77h";
-dataMap["Xanadu"] = "1h-3h-39h-44h-40h|33h-77h-66h-42h-85h-79h-36h";
-dataMap["2GG"] = "1h-3h-40h-44h-79h-37h-39h|85h-42h-83h-33h-36h-66h";
+//Set id "presets" to the list of stagelists from DataMap.
+function populateCommunityList() {
+    let keys = Object.keys(dataMap);
+    let presets = document.getElementById("presets"); //get navbar presets div
+    for (let i = 0; i < keys.length; i++) {
+        // <a class="navbar-item" href="javascript:initFromDataMap(keys[i])">Someone's Stagelist</a>
+        let presetItem = document.createElement("a");
+        presetItem.classList.add("navbar-item");
+        presetItem.href = "javascript:preset('" + keys[i] + "')";
+        presetItem.innerHTML = keys[i] + "'s Stagelist";
+        presets.appendChild(presetItem);
+    }
+}
+
+function enableNavbarBurgers() {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+}
+
+
+dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
+dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h_85-42h-36h-77h-66h-79h-17h";
+dataMap["Ottawa"] = "1-3-24h-44-37h-39h-79h_19-20-17h-33h-36h-38h-42h-62h-66h-77h-85";
+dataMap["2GG"] = "1-3-44-37-20-8-85-24-19_79h-39h-42h-83h-33h-36h-66h";
+dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-79h_33h-39h-77h-66h-42h-85h-36h-37h";
+dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-66h-12h-77h";
+dataMap["Xanadu"] = "1h-3h-39h-44h-40h_33h-77h-66h-42h-85h-79h-36h";

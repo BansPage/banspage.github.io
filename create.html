@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bans.Create</title>
+    <meta name="description" content="The Bans Page. Create a custom stagelist." />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <script src="./js/constants.js"></script>
+ 	  <script src="./js/create.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bans.page">
+          <img src="img/Logo.png" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="./index.html">Home</a>
+          <a class="navbar-item" href="./create.html">Stagelist Builder</a>
+          <a class="navbar-item" href="./about.html">About</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Presets</a>
+            <div class="navbar-dropdown" id="presets">
+            </div>
+          </div>
+        </div>
+    </nav>
+    <main>
+      <section class="container">
+          <div class="container has-text-centered">
+              <h1 class="title is-2">Create Your Own Stagelist!</h1>
+              <p>Welcome to the Bans.Page Stagelist creator! When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.</p>
+              <br/><h2 class="subtitle is-4 has-text-weight-bold">The ¬ symbol means a stage should only be played without Stage Hazards.</p><br />
+          </div>
+      </section>
+    </main>
+
+    <div id="buckets" class="container has-text-centered"></div>
+    </br>
+    <section class="container has-text-centered">
+      <a class="button" href="javascript:addBucket()">Add Stage Bucket</a>
+    </section>
+
+    <br />
+    <section class="container has-text-centered">
+      <hr />
+      <label for="name">Your Name: </label><input maxlength="20" class="input" type="text" id="name" onchange="generateCode()" /><br /><br />
+      <a href="javascript:createStagelist()" class="button is-large is-primary">Create Stagelist</a>
+      <hr />
+      <a href="./create.html" class="button">Reset</a>
+      <br /><br />
+      <div id="limited" class="card">
+        <small>This page is currently displaying a more limited list of stages based on what might likely be considered a competitive stage by the community.<br /><br />To view the full list of 103 stages, press the button below.</small>
+        <br /><br />
+        <a class="button" href="./create.html?nolimits=1">View Full Stage Options</a>
+      </div>
+
+      <div id="unlimited" class="card hidden">
+          <small>This page is currently displaying all stages in SSBU.<br /><br />To view a more limited list of likely competitive stages, press the button below.</small>
+          <br /><br />
+          <a class="button" href="./create.html">View Limited Stage Options</a>
+        </div>
+    </section>
+    <br />
+
+    <footer class="footer has-text-centered">
+      <div class="container">
+          <div class="columns">
+          <div class="column is-8-desktop is-offset-2-desktop">
+            <p>
+              <strong class="has-text-weight-semibold">
+                <a href="https://bans.page">Bans.Page</a>
+              </strong>
+            </p>
+            <p>
+              <small>
+                  <p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
+              </small>
+            </p>
+            <p style="margin-top: 1rem;">
+              <a href="http://bulma.io">
+                <img src="./img/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    enableNavbarBurgers();
+    populateCommunityList();
+    setLimits(); //read ?nolimits and toggle settings if needed
+    loadSelects(); //populate all existing dropdowns on screen. will redirect to nolimits if stage ID not found in whitelist
+	  loadFromURL(); //try to populate from URL
+  </script>
+</html>

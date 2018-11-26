@@ -1,0 +1,165 @@
+.navbar-item.navbar-center
+{
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+}
+
+/* Body of the Create Page */
+.createBody {
+    background-image: url("bg_inverted.png");
+    background-repeat: repeat;
+    color: white;
+}
+
+/* Body of the About Page */
+.about {
+    width: 50vw;
+    background-color: #eeeeee99;
+    border-radius: 0.25em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+/* Stage Image display on Home */
+.stage img {
+    width: 110px;
+    height: auto;
+    
+    border-radius: 0.5em;
+}
+
+/* Stage div */
+.stage {
+    display: inline-block;
+    min-height: 175px;
+    vertical-align: top;
+    margin-bottom: 0px;
+    padding: 8px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Stage Name */
+.stage p {
+    padding: 0;
+    margin: 0;
+    max-width: 110px;
+    font-size: 13px;
+}
+
+/* Struck-out Stage */
+.struck {
+    filter: grayscale(100%);
+    opacity: 0.65;
+}
+
+/* Hazardless Stages get a blue dotted outline */
+.hazardless {
+    border: 4px dashed blue;
+    width: 102px;
+}
+
+/* Stagelist Builder dropdown */
+select {
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+.button.is-info {
+    margin-right: 8px;
+}
+
+.field input + label {
+    z-index: 999;
+}
+
+.field input + label + p {
+    opacity: 0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -12px;
+    margin-left: -4px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.field input:checked + label + p {
+    opacity: 1 !important;
+}
+
+.select {
+    margin-right: 8px;
+}
+
+footer {
+    height: 175px;
+    padding-top: 35px !important;
+}
+
+#limited, #unlimited {
+    width: 60%;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 12px;
+}
+
+#name {
+    width: 175px;
+    text-align: center;
+}
+
+/* Mobile */
+@media only screen and (max-width: 550px) {
+    .stage {
+        min-height: 30vw;
+    }
+    .stage img {
+        width: 15vw;
+    }
+    .stage img + p {
+        max-width: 15vw;
+        font-size: 11px;
+        line-height: 12px;
+    }
+
+    .hazardless {
+        width: 14vw;
+        border: 2px dotted blue;
+    }
+
+    .about {
+        width: 95%;
+    }
+
+    #limited, #unlimited {
+        width: 95%;
+    }
+    
+    #name {
+        width: 95%;
+    }
+
+    main {
+        width: 95%;
+    }
+}

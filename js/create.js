@@ -1,64 +1,121 @@
-let currentBucketIndex = 2;
+let currentBucketIndex = 0;
 
 // Add Stage to Bucket
 function addStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
 
-	let newSelect = document.createElement("SELECT");
+	let newStage = document.createElement("article");
+	newStage.classList.add("field", "is-grouped", "is-grouped-centered");
+
+	// Select
+	let newSelectDiv = document.createElement("div");
+	newSelectDiv.classList.add("select");
+
+	let newSelect = document.createElement("select");
 	newSelect.innerHTML = getSelectInner();
-	div.appendChild(newSelect);
-	let newCheckbox = document.createElement("input");
-	newCheckbox.type = "checkbox";
-	div.appendChild(newCheckbox);
+	newSelect.onchange = function () {
+		generateCode();
+	}
+
+
+	newSelectDiv.appendChild(newSelect);
+	newStage.appendChild(newSelectDiv);
+
+	// Checkbox/Switch
+	//let newCheckControl = document.createElement("p");
+	//newCheckControl.classList.add("control");
+
+	let newCheckDiv = document.createElement("div");
+	newCheckDiv.classList.add("field");
+
+	let newCheck = document.createElement("input");
+	let checkName = '_' + Math.random().toString(36).substr(2, 9);
+	newCheck.id = checkName;
+	newCheck.name = checkName;
+	newCheck.classList.add("switch");
+	newCheck.type = "checkbox"
+	newCheck.checked = false;
+	newCheck.onchange = function () {
+		generateCode();
+	}
+
 	let newLabel = document.createElement("label");
-	newLabel.innerHTML = " ¬";
-	div.appendChild(newLabel);
-	div.appendChild(document.createElement("br"));
+	newLabel.htmlFor = checkName;
+	let newParagraph = document.createElement("P");
+	newParagraph.innerHTML = "¬";
+
+	newCheckDiv.appendChild(newCheck);
+	newCheckDiv.appendChild(newLabel);
+	newCheckDiv.appendChild(newParagraph);
+
+	newStage.appendChild(newCheckDiv);
+
+	div.appendChild(newStage);
 }
 
 // Remove Stage from Bucket
 function removeStage(ind) {
 	let bucket = document.getElementById("bucket" + ind.toString());
 	let div = bucket.getElementsByTagName("div")[0];
-	if (div.getElementsByTagName("SELECT").length <= 1 && ind > 2) {
+
+	let stages = div.getElementsByTagName("article");
+	if (stages.length <= 1 && ind > 2) {
 		bucket.remove();
 		if (ind == currentBucketIndex) {
 			currentBucketIndex -= 1;
 		}
 		setFirstBucketHeaders();
 		return;
-	} else if (div.getElementsByTagName("SELECT").length <= 1) {
+	} else if (stages.length <= 1) {
 		return;
 	}
-
-	while (div.lastChild.tagName != "SELECT") {
-		div.removeChild(div.lastChild);
-	}
-	div.removeChild(div.lastChild);
+	div.removeChild(stages[stages.length - 1]);
 }
 
 // Create new Bucket
 function addBucket() {
+	/*
+		<section id="bucket1" class="box">
+            <h2 class="title is-4">Starters</h2>
+            <div></div>
+            <a class="button is-info" href="javascript:addStage(1)">Add</a>
+            <a class="button is-danger" href="javascript:removeStage(1)">Remove</a>
+        </section>
+	*/
 	currentBucketIndex += 1;
 	let main = document.getElementById("buckets");
 	let newSection = document.createElement("SECTION");
 	newSection.id = "bucket" + currentBucketIndex.toString();
+	newSection.classList.add("box");
 
-	let htmlString = "<h2>Bucket " + currentBucketIndex.toString() + "</h2>\n";
-	htmlString += "<button onclick=\"addStage(" + currentBucketIndex.toString() + ")\">+</button>\n<button onclick=\"removeStage(" + currentBucketIndex.toString() + ")\">-</button><br /><br />\n";
-	htmlString += "<div>\n<select>" + getSelectInner() + "</select>";
-	htmlString += "<input type=\"checkbox\" /><label> ¬</label>"
-	htmlString += "<br />\n</div>";
-	newSection.innerHTML = htmlString;
+	let sectionH2 = document.createElement("h2");
+	sectionH2.classList.add("title", "is-4");
+	sectionH2.innerHTML = "Bucket " + currentBucketIndex.toString();
+	newSection.appendChild(sectionH2);
+
+	newSection.appendChild(document.createElement("div"));
+
+	let btnAdd = document.createElement("a");
+	btnAdd.classList.add("button", "is-info");
+	btnAdd.href = "javascript:addStage(" + currentBucketIndex + ")";
+	btnAdd.innerHTML = "Add";
+	newSection.appendChild(btnAdd);
+
+	let btnRemove = document.createElement("a");
+	btnRemove.classList.add("button", "is-danger");
+	btnRemove.href = "javascript:removeStage(" + currentBucketIndex + ")";
+	btnRemove.innerHTML = "Remove";
+	newSection.appendChild(btnRemove);
 
 	main.appendChild(newSection);
+	addStage(currentBucketIndex);
 	setFirstBucketHeaders();
 }
 
 // Create the interior of a dropdown
 function getSelectInner() {
-	let htmlString = "<option value=\"\">None</option>\n";
+	let htmlString = "<option value=\"0\">None</option>\n";
 	for (let i = 1; i < whitelist.length; i++) {
 		let realID = names.indexOf(whitelist[i]);
 		htmlString += "<option value=\"" + realID.toString() + "\">" + whitelist[i] + "</option>\n";
@@ -67,13 +124,11 @@ function getSelectInner() {
 	return htmlString;
 }
 
-// Perform getSelectInner() on all Dropdowns
+// Creates first two buckets
 function loadSelects() {
-	let selects = document.getElementsByTagName("select");
-	for (let i = 0; i < selects.length; i++) {
-		selects[i].innerHTML = getSelectInner();
-	}
-	document.getElementById("generatedCode").value = "";
+	addBucket();
+	addBucket();
+	setFirstBucketHeaders();
 
 	let inputs = document.getElementsByTagName("input");
 	for (let i = 0; i < inputs.length; i++) {
@@ -89,13 +144,14 @@ function validStage(s) {
 
 // Keep resetting Starter/Counterpick headers
 function setFirstBucketHeaders() {
-	if (document.getElementById("buckets").getElementsByTagName("section").length == 2) {
-		document.getElementById("header1").innerHTML = "Starters";
-		document.getElementById("header2").innerHTML = "Counterpicks";
-	} else {
-		document.getElementById("header1").innerHTML = "Bucket 1";
-		document.getElementById("header2").innerHTML = "Bucket 2";
-	}
+	let buckets = document.getElementById("buckets").getElementsByTagName("section").length;
+	if (buckets == 2) {
+		document.getElementById("bucket1").getElementsByTagName("h2")[0].innerHTML = "Starters";
+		document.getElementById("bucket2").getElementsByTagName("h2")[0].innerHTML = "Counterpicks";
+	} else if (buckets > 2) {
+		document.getElementById("bucket1").getElementsByTagName("h2")[0].innerHTML = "Bucket 1";
+		document.getElementById("bucket2").getElementsByTagName("h2")[0].innerHTML = "Bucket 2";
+	} 
 }
 
 // Generate Code from buckets and dropdowns
@@ -107,7 +163,7 @@ function generateCode() {
 	for (let i = 0; i < sections.length; i++) {
 		let bucketString = "";
 		if (i != 0) {
-			bucketString += "|";
+			bucketString += "_";
 		}
 		
 		let selects = sections[i].getElementsByTagName("div")[0].getElementsByTagName("select");
@@ -120,20 +176,25 @@ function generateCode() {
 			if (checkboxes[j].checked)
 				bucketString += "h";
 		}
-		if (bucketString.length > 0 && bucketString != "|")
+		if (bucketString.length > 0 && bucketString != "_")
 			resultString += bucketString;
 	}
-	console.log(resultString);
 
-	document.getElementById("generatedCode").value = resultString;
+	let name = document.getElementById("name").value;
+	if (name) {
+		resultString += "n" + btoa(name);
+	}
+	console.log(resultString);
+	window.location.hash = resultString;
 
 	return resultString;
 }
 
 // Load buckets from code
 function loadBuckets() {
-	let code = document.getElementById("generatedCode").value;
-	let bucketCodes = code.split("|");
+	let code = window.location.hash.replace("#", "");
+	code = code.replace(/\|/g, "_"); //backwards compatability with | codes
+	let bucketCodes = code.split("_");
 	if (bucketCodes.length == 0)
 		return;
 
@@ -168,25 +229,24 @@ function loadBuckets() {
 				}
 			}
 			else {
-				let stageCode = document.getElementById("generatedCode").value;
-				if (window.location.href.indexOf("?") == -1)
-					window.location.href = window.location.href + "?nolimits=1&s=" + stageCode;
-				else
-					window.location.href = window.location.href + "&nolimits=1";
+				let stageCode = window.location.hash.replace("#", "");
+				window.location.href = "./create.html" + "?nolimits=1#" + stageCode;
 			}
 		}
 	}
 
-	document.getElementById("generatedCode").value = "";
+	if (code.split("n").length > 1) {
+		document.getElementById("name").value = atob(code.split("n")[1]);
+	}
 }
 
-// Redirect to homepage with generatedCode
-function redirect() {
+// Redirect to homepage with stage code
+function createStagelist() {
 	generateCode();
-	let v = document.getElementById("generatedCode").value;
+	let v = window.location.hash.replace("#", "");
 
 	if (v)
-		window.location.href = "../index.html?s=" + v;
+		window.location.href = "./index.html?s=" + v;
 }
 
 // Set page to noLimits if applicable
@@ -194,7 +254,7 @@ function setLimits() {
 	let urlString = window.location.href;
     let url = new URL(urlString);
     let nolimits = url.searchParams.get("nolimits");
-    let stageCode = url.searchParams.get("s");
+    let stageCode = window.location.hash.replace("#", "");
     if (nolimits) {
     	whitelist = names;
     	document.getElementsByTagName("h1")[0].innerHTML = "Create Your Own Stagelist! No limits!";
@@ -205,13 +265,23 @@ function setLimits() {
 
 // Load buckets from URL ?s parameter
 function loadFromURL() {
-	let urlString = window.location.href;
-	let url = new URL(urlString);
-	let stageCode = url.searchParams.get("s");
+	stageCode = window.location.hash.replace("#", "");
 	if (stageCode) {
-    	document.getElementById("generatedCode").value = stageCode;
-    	console.log(document.getElementById("generatedCode").value);
     	loadBuckets();
-    	document.getElementById("generatedCode").value = stageCode;
     }
+}
+
+function preset(key) {
+	let stageCode = dataMap[key];
+	let urlString = window.location.href;
+    let url = new URL(urlString);
+	let nolimits = url.searchParams.get("nolimits");
+	let newURL = "./create.html";
+	if (nolimits)
+		newURL += "?nolimits=1";
+	newURL += "#" + stageCode;
+	console.log(newURL);
+	window.location.href = newURL;
+	console.log(window.location.href);
+	window.location.reload(true);
 }
