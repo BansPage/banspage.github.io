@@ -19,7 +19,7 @@ function decode(code) {
 
     code = code.replace(/\|/g, "_");
     code = code.replace("#", "");
-    let portions = code.split("n");
+    let portions = code.replace("n", "|").split("|"); //replace the first n with a |
     let buckets = code.split("_");
     if (portions.length > 1) {
         header = "Custom: " + atob(portions[1]) + "'s Stagelist";

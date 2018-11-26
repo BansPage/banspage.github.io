@@ -20,7 +20,6 @@ function addStage(ind) {
 
 
 	newSelectDiv.appendChild(newSelect);
-
 	newStage.appendChild(newSelectDiv);
 
 	// Checkbox/Switch
@@ -51,7 +50,6 @@ function addStage(ind) {
 	newCheckDiv.appendChild(newParagraph);
 
 	newStage.appendChild(newCheckDiv);
-	//newStage.appendChild(newParagraph);
 
 	div.appendChild(newStage);
 }
