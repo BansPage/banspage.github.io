@@ -119,7 +119,7 @@ function getSelectInner() {
 	let sortedList = whitelist.slice(0); //clone of whitelist
 	let none = sortedList.splice(0, 1); //remove option "None"
 	sortedList = sortedList.sort(); //sort whitelist alphabetically, except for None
-	sortedList = Array.concat(none, sortedList); //put None back at the top
+	sortedList = none.concat(sortedList); //put None back at the top
 
 	for (let i = 1; i < sortedList.length; i++) {
 		let realID = names.indexOf(sortedList[i]);
