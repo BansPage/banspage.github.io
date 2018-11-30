@@ -61,6 +61,7 @@ dataMap["2GG"] = "1-3-44-24h-20_85-39h-42h-62h-33h-36h-77h-38h-17h-37";
 dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
 dataMap["Ori (Michigan TO)"] = "1-3-44-37-40h-20-39h_85-42h-36h-77h-66h-79h-17h";
 dataMap["Ottawa"] = "1-3-24h-44-37h-39h-79h_19-20-17h-33h-36h-38h-42h-62h-66h-77h-85";
+dataMap["Philly"] = "1h-3h-40h-44h-33h_79h-44-85-20-39h";
 dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-79h_33h-39h-77h-66h-42h-85h-36h-37h";
 dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-66h-12h-77h";
 dataMap["Xanadu"] = "1h-3h-39h-44h-40h_33h-77h-66h-42h-85h-79h-36h";
