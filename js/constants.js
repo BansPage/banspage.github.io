@@ -65,4 +65,4 @@ dataMap["Ottawa"] = "1-3-24h-44-37h-39h-79h_19-20-17h-33h-36h-38h-42h-62h-66h-77
 dataMap["Philly"] = "1h-3h-40h-44h-33h_79h-44-85-20-39h";
 dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-62h_79h-85h-37h-33h";
 dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-66h-12h-77h";
-dataMap["Xanadu"] = "1h-3h-39h-44h-40h_33h-77h-66h-42h-85h-79h-36h";
+dataMap["Xanadu"] = "1h-3h-79h-44h-40h_33h-77h-42h-85h-37h-36h";
