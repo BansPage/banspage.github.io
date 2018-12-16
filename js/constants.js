@@ -56,7 +56,7 @@ function enableNavbarBurgers() {
     }
 }
 
-
+dataMap["Bear (Evo & Genesis TO)"] = "1h-3h-44h-40h-39h_42h-79h-85h-33h-37h-19h";
 dataMap["Ori (Michigan TO)"] = "1-3-44-40h-85_79h-62h-33h-37";
 dataMap["DownB (Minnesota Smash)"] = "1h-3h-44h-37h-40h_42h-79h-85h";
 dataMap["2GG"] = "1-3-44-40h-79h_37-85";
