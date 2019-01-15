@@ -59,6 +59,7 @@ function enableNavbarBurgers() {
 dataMap["Genesis 6"] = "1h-44h-40h-3h-39h_62h-42h-85h-19h-79h-37h";
 dataMap["California"] = "79h-44h-40h-37h-3h-85h-1h";
 dataMap["Bear (Evo & Genesis TO)"] = "1h-3h-44h-40h-39h_42h-79h-85h-33h-37h-19h";
+dataMap["Collision"] = "1h-3h-44h-40h-79h_62h-85h-37h";
 dataMap["Ori (Michigan TO)"] = "1-3-44-40h-85_79h-62h-33h-37";
 dataMap["DownB (Minnesota Smash)"] = "1h-3h-44h-37h-40h_42h-79h-85h";
 dataMap["2GG"] = "1-3-44-40h-79h_37-85";
@@ -66,6 +67,4 @@ dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-42h-12h-77
 dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
 dataMap["Ottawa"] = "1h-3h-24h-44h-85h_19h-37h-62h-79h";
 dataMap["Philly"] = "1h-3h-40h-44h-79h_33h-37h-85h-62h";
-dataMap["RJ (Tristate TO)"] = "1h-3h-44h-40h-62h_79h-85h-37h-33h";
-dataMap["Tristate"] = "1h-3h-44h-40h-62h_79h-85h-37h";
 dataMap["Xanadu"] = "1h-3h-79h-44h-40h_33h-77h-42h-85h-37h-36h";
