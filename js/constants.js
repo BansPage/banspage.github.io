@@ -58,7 +58,7 @@ function enableNavbarBurgers() {
 
 dataMap["Genesis 6"] = "1h-44h-40h-3h-39h_62h-42h-85h-19h-79h-37h";
 dataMap["California"] = "79h-44h-40h-37h-3h-85h-1h";
-dataMap["Bear (Evo & Genesis TO)"] = "1h-3h-44h-40h-39h_42h-79h-85h-33h-37h-19h";
+dataMap["Bear (Evo & Genesis TO)"] = "1h-79h-40h-44h-85h_3h-39h";
 dataMap["Collision"] = "1h-3h-44h-40h-79h_62h-85h-37h";
 dataMap["MISU (Ori)"] = "1h-3h-44h-40h-85h_79h-39h-19h-37h";
 dataMap["DownB (Minnesota Smash)"] = "1h-3h-44h-37h-40h_42h-79h-85h";
