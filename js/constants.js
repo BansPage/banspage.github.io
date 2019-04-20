@@ -12,14 +12,14 @@ const names = [
 	"Balloon Fight", "Living Room", "Find Mii", "Tomodachi Life", "PictoChat 2", "Mushroom Kingdom U", "Mario Galaxy", "Mario Circuit", "Skyloft", "The Great Cave Offensive",
 	"Kalos Pokemon League", "Coliseum", "Flat Zone X", "Palutena's Temple", "Gamer", "Garden of Hope", "Town and City", "Wii Fit Studio", "Boxing Ring", "Gaur Plain", "Duck Hunt",
 	"Wrecking Crew", "Pilotwings", "Wuhu Island", "Windy Hill Zone", "Wily Castle", "PAC-LAND", "Super Mario Maker", "Suzaku Castle", "Midgar", "Umbra Clock Tower",
-	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle"
+	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle", "Mementos"
 ];
 
 let whitelist = [
     "None", "Battlefield", "Final Destination", "Kongo Jungle", "Dream Land", "Rainbow Cruise", "Kongo Falls", "Brinstar", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium", "Delfino Plaza",
     "WarioWare, Inc.", "Norfair", "Frigate Orpheon", "Yoshi's Island (Brawl)", "Halberd", "Lylat Cruise", "Pokemon Stadium 2", "Castle Siege", "Smashville", "Unova Pokemon League", "Prism Tower",
     "Arena Ferox", "PictoChat 2", "Mushroom Kingdom U", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
-    "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle"
+    "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle", "Mementos"
 ];
 
 //Set id "presets" to the list of stagelists from DataMap.
@@ -67,5 +67,5 @@ dataMap["2GG"] = "1-3-44-40h-79h_37-85";
 dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-42h-12h-77h";
 dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
 dataMap["Ottawa"] = "1h-3h-24h-44h-85h_19h-37h-62h-79h";
-dataMap["Philly"] = "1h-3h-24h-44h-85h_39h-37h-79h-40";
+dataMap["Philly"] = "1h-3h-24h-44h-85h_39h-37h-79h-40h-104h";
 dataMap["Xanadu"] = "1h-44h-24h-3h-39h_62h-79h-85h";
