@@ -69,4 +69,4 @@ dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
 dataMap["Ottawa"] = "1h-3h-24h-44h-85h_19h-37h-62h-79h";
 dataMap["Philly"] = "1h-3h-24h-44h-85h_39h-37h-79h-40h-104h";
 dataMap["Xanadu"] = "1h-44h-24h-3h-39h_62h-79h-85h";
-dataMap["ACU (All Charged Up)"] = "1h-3h-24h-44h-85h_39h-38h-79h-37h";
+dataMap["ACU (All Charged Up)"] = "1h-3h-40h-44h-85h_39h-37h-79h";
