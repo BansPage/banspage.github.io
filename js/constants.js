@@ -56,16 +56,14 @@ function enableNavbarBurgers() {
     }
 }
 
+dataMap["EVO 2019"] = "1h-3h-40h-44h-85h_79h-39h-37h-19h"
 dataMap["Genesis 6"] = "1h-44h-40h-3h-39h_62h-42h-85h-19h-79h-37h";
 dataMap["California"] = "79h-44h-40h-37h-3h-85h-1h";
-dataMap["Bear (Evo & Genesis TO)"] = "1h-79h-40h-44h-85h_3h-39h";
-dataMap["Collision"] = "1h-3h-44h-40h-79h_62h-85h-37h";
+dataMap["Collision"] = "1h-3h-44h-40h-85h_62h";
 dataMap["MISU (Ori)"] = "1h-3h-44h-40h-85h_79h-39h-19h-37h";
 dataMap["DownB (Minnesota Smash)"] = "1h-3h-44h-37h-40h_42h-79h-85h";
 dataMap["Bourbon (Kentucky)"] = "1h-3h-79h-40h-44h_37h-85h-19h-44";
-dataMap["2GG"] = "1-3-44-40h-79h_37-85";
-dataMap["Smashadelphia"] = "1h-44h-3h-40h-33h-36h-85h_19h-37h-94h-79h-42h-12h-77h";
-dataMap["ZeRo"] = "1-3-20-40h-44_85-17h-37-36h-42h-39h";
 dataMap["Ottawa"] = "1h-3h-24h-44h-85h_19h-37h-62h-79h";
 dataMap["Philly"] = "1h-3h-24h-44h-85h_39h-37h-79h-40h-104h";
 dataMap["Xanadu"] = "1h-44h-24h-3h-39h_62h-79h-85h";
+dataMap["ACU (All Charged Up)"] = "1h-3h-40h-44h-85h_39h-62h-79h";
