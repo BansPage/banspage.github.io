@@ -26,15 +26,16 @@ permalink: /404.html
 					console.log("hash: " + hash);
 
 					let keys = Object.keys(dataMap);
-
+					
 					for (let i = 0; i < keys.length; i++) {
 						let key = keys[i].toLowerCase();
 						let valid = key.startsWith(hash) && hash.length > 1;
-						if (valid) { //ze will redirect to ZeRo, but not z
+						if (valid && redirectLink == "") { //ze will redirect to ZeRo, but not z
 							isRedirect = true;
 							console.log(keys[i]);
 							redirectLink = "./index.html#" + dataMap[keys[i]];
 							console.log("dataMap: " + dataMap[keys[i]]);
+							break;
 						}
 					}
 
