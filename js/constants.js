@@ -69,3 +69,4 @@ dataMap["Philly"] = "24h-44h-85h-3h-1h_39h-79h-40h";
 dataMap["PhillyTriples"] = "98h-3h-40h_2h-89h-79h-104h-85h-105h";
 dataMap["Xanadu"] = "1h-44h-24h-3h-39h_62h-79h-85h";
 dataMap["ACU (All Charged Up)"] = "1h-3h-40h-44h-85h_39h-62h-79h";
+dataMap["Items - Alpharad Spring Items 2020"] = "96-98-83-63-104_73-33-84-71-13-66-79";
