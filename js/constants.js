@@ -12,7 +12,7 @@ const names = [
 	"Balloon Fight", "Living Room", "Find Mii", "Tomodachi Life", "PictoChat 2", "Mushroom Kingdom U", "Mario Galaxy", "Mario Circuit", "Skyloft", "The Great Cave Offensive",
 	"Kalos Pokemon League", "Coliseum", "Flat Zone X", "Palutena's Temple", "Gamer", "Garden of Hope", "Town and City", "Wii Fit Studio", "Boxing Ring", "Gaur Plain", "Duck Hunt",
 	"Wrecking Crew", "Pilotwings", "Wuhu Island", "Windy Hill Zone", "Wily Castle", "PAC-LAND", "Super Mario Maker", "Suzaku Castle", "Midgar", "Umbra Clock Tower",
-	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle", "Mementos", "Yggdrasil's Altar"
+	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle", "Mementos", "Yggdrasil's Altar", "Spiral Mountain", "King of Fighters Stadium", "Garreg Mach Monastery"
 ];
 
 let whitelist = [
