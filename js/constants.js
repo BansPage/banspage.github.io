@@ -13,14 +13,14 @@ const names = [
 	"Kalos Pokemon League", "Coliseum", "Flat Zone X", "Palutena's Temple", "Gamer", "Garden of Hope", "Town and City", "Wii Fit Studio", "Boxing Ring", "Gaur Plain", "Duck Hunt",
 	"Wrecking Crew", "Pilotwings", "Wuhu Island", "Windy Hill Zone", "Wily Castle", "PAC-LAND", "Super Mario Maker", "Suzaku Castle", "Midgar", "Umbra Clock Tower",
 	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle", "Mementos", "Yggdrasil's Altar", "Spiral Mountain", "King of Fighters Stadium", "Garreg Mach Monastery",
-	"Spring Stadium", "Small Battlefield"
+	"Spring Stadium", "Small Battlefield", "Minecraft World", "Northern Cave"
 ];
 
 let whitelist = [
-    "None", "Battlefield", "Final Destination", "Kongo Jungle", "Dream Land", "Rainbow Cruise", "Kongo Falls", "Brinstar", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium", "Delfino Plaza",
-    "WarioWare, Inc.", "Norfair", "Frigate Orpheon", "Yoshi's Island (Brawl)", "Halberd", "Lylat Cruise", "Pokemon Stadium 2", "Castle Siege", "Smashville", "Unova Pokemon League", "Prism Tower",
-    "Arena Ferox", "PictoChat 2", "Mushroom Kingdom U", "Skyloft", "Kalos Pokemon League", "Gamer", "Town and City", "Duck Hunt", "Wuhu Island", "Pilotwings", "Wily Castle", "Super Mario Maker", "Midgar",
-    "Umbra Clock Tower", "New Donk City Hall", "Dracula's Castle", "Mementos", "Yggdrasil's Altar", "Small Battlefield"
+    "None", "Battlefield", "Final Destination", "Dream Land", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium",
+    "WarioWare, Inc.", "Yoshi's Island (Brawl)", "Lylat Cruise", "Pokemon Stadium 2", "Smashville", "Unova Pokemon League",
+    "Kalos Pokemon League", "Town and City", "Midgar", "Small Battlefield", "Northern Cave", "Skyloft", "Yggdrasil's Altar",
+    "Rainbow Cruise", "Frigate Orpheon", "Halberd", "Castle Siege", "Wuhu Island", "Wily Castle", "Mementos", "Spring Stadium"
 ];
 
 //Set id "presets" to the list of stagelists from DataMap.
