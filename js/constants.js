@@ -13,14 +13,14 @@ const names = [
 	"Kalos Pokemon League", "Coliseum", "Flat Zone X", "Palutena's Temple", "Gamer", "Garden of Hope", "Town and City", "Wii Fit Studio", "Boxing Ring", "Gaur Plain", "Duck Hunt",
 	"Wrecking Crew", "Pilotwings", "Wuhu Island", "Windy Hill Zone", "Wily Castle", "PAC-LAND", "Super Mario Maker", "Suzaku Castle", "Midgar", "Umbra Clock Tower",
 	"New Donk City Hall", "Great Plateau Tower", "Moray Towers", "Dracula's Castle", "Mementos", "Yggdrasil's Altar", "Spiral Mountain", "King of Fighters Stadium", "Garreg Mach Monastery",
-	"Spring Stadium", "Small Battlefield", "Minecraft World", "Northern Cave"
+	"Spring Stadium", "Small Battlefield", "Minecraft World", "Northern Cave", "Cloud Sea of Alrest", "Mishima Dojo", "Hollow Bastion"
 ];
 
 let whitelist = [
     "None", "Battlefield", "Final Destination", "Dream Land", "Yoshi's Story", "Fountain of Dreams", "Pokemon Stadium",
     "WarioWare, Inc.", "Yoshi's Island (Brawl)", "Lylat Cruise", "Pokemon Stadium 2", "Smashville", "Unova Pokemon League",
     "Kalos Pokemon League", "Town and City", "Midgar", "Small Battlefield", "Northern Cave", "Skyloft", "Yggdrasil's Altar",
-    "Rainbow Cruise", "Frigate Orpheon", "Halberd", "Castle Siege", "Wuhu Island", "Wily Castle", "Mementos", "Spring Stadium"
+    "Rainbow Cruise", "Frigate Orpheon", "Halberd", "Castle Siege", "Wuhu Island", "Wily Castle", "Mementos", "Hollow Bastion"
 ];
 
 //Set id "presets" to the list of stagelists from DataMap.
@@ -57,6 +57,7 @@ function enableNavbarBurgers() {
     }
 }
 
+dataMap["Super Smash Con 2021"] = "1h-3h-44h-40h-85h_79h-39h-110h-19h"
 dataMap["EVO 2019"] = "1h-3h-40h-44h-85h_79h-39h-37h-19h"
 dataMap["Genesis 6"] = "1h-44h-40h-3h-39h_62h-42h-85h-19h-79h-37h";
 dataMap["California"] = "79h-44h-40h-37h-3h-85h-1h";
