@@ -57,6 +57,7 @@ function enableNavbarBurgers() {
     }
 }
 
+dataMap["Smash India 2022"] = "110-1-3-44-85_112-115";
 dataMap["Super Smash Con 2021"] = "1h-3h-44h-40h-85h_79h-39h-110h-19h"
 dataMap["EVO 2019"] = "1h-3h-40h-44h-85h_79h-39h-37h-19h"
 dataMap["Genesis 6"] = "1h-44h-40h-3h-39h_62h-42h-85h-19h-79h-37h";
