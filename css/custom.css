@@ -32,7 +32,8 @@ main {
 /* Stage Image display on Home */
 .stage img {
     width: 110px;
-    height: auto;
+    height: 110px;
+    object-fit: cover;
     
     border-radius: 0.5em;
 }
@@ -135,6 +136,8 @@ footer {
     }
     .stage img {
         width: 15vw;
+        height: 15vw;
+        object-fit: cover;
     }
     .stage img + p {
         max-width: 15vw;
