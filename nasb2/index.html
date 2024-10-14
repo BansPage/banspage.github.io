@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bans.Create</title>
-    <meta name="description" content="The Bans Page. Create a custom stagelist." />
+    <title>Bans.Page (NASB2)</title>
+    <meta name="description" content="The Bans Page. Ban stages for NASB2." />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Twitter Card data -->
+     <!-- Twitter Card data -->
     <meta name="twitter:card" value="summary">
 
     <!-- Open Graph data -->
@@ -18,14 +18,14 @@
     <meta property="og:url" content="https://bans.page" />
     <meta property="og:image" content="https://bans.page/img/preview.png" />
     <meta property="og:description" content="The Bans Page. Ban stages from premade or custom stagelists." /> 
-
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/custom.css">
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/custom.css">
 
     <script src="./js/constants.js"></script>
- 	  <script src="./js/create.js"></script>
-
-     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="./js/home.js"></script>
+     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129285594-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -36,6 +36,18 @@
     </script>
 
   </head>
+
+  <style>
+    /* Stage div */
+    .stage {
+      min-height: 175px !important;
+    }
+
+    .stage img {
+      height: 110px;
+      object-fit: cover;
+    }
+  </style>
 
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -59,52 +71,36 @@
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Presets</a>
             <div class="navbar-dropdown" id="presets">
+
             </div>
           </div>
-          <a class="navbar-item" href="./nasb2/index.html">NASB2</a>
+          <a class="navbar-item" href="../index.html">SSBU</a>
         </div>
     </nav>
+
     <main>
-      <section class="container">
-          <div class="container has-text-centered">
-              <h1 class="title is-2">Create Your Own Stagelist!</h1>
-              <p>Welcome to the Bans.Page Stagelist creator! When you're happy with your selection, click "Create Stagelist"!<br />Once viewing your Stagelist, you can share it with others by copying the URL.</p>
-              <br/><h2 class="subtitle is-4 has-text-weight-bold">The ¬ symbol means a stage should only be played without Stage Hazards.</p><br />
-          </div>
-      </section>
-    </main>
 
-    <div id="buckets" class="container has-text-centered"></div>
-    </br>
-    <section class="container has-text-centered">
-      <a class="button" href="javascript:addBucket()">Add Stage Bucket</a>
-    </section>
-
-    <br />
-    <section class="container has-text-centered">
-      <hr />
-      <label for="name">Your Name: </label><input maxlength="35" class="input" type="text" id="name" onchange="generateCode()" /><br /><br />
-      <a href="javascript:createStagelist()" class="button is-large is-primary">Create Stagelist</a>
-      <hr />
-      <a href="./create.html" class="button">Reset</a>
-      <br /><br />
-      <div id="limited" class="card">
-        <small>This page is currently displaying a more limited list of stages based on what might likely be considered a competitive stage by the community.<br /><br />To view the full list of 103 stages, press the button below.</small>
-        <br /><br />
-        <a class="button" href="./create.html?nolimits=1">View Full Stage Options</a>
+      <div class="container has-text-centered">
+        <h1 class="title is-2">NASB2 Stage Striking</h1>
+        <p>Click on a stage to strike/unstrike it. Refresh page to reset.</p>
       </div>
 
-      <div id="unlimited" class="card hidden">
-          <small>This page is currently displaying all stages in SSBU.<br /><br />To view a more limited list of likely competitive stages, press the button below.</small>
-          <br /><br />
-          <a class="button" href="./create.html">View Limited Stage Options</a>
-        </div>
-    </section>
-    <br />
+      <div class="container has-text-centered">
+        <section id="buckets"></section>
+        </br>
+        <a class="button is-medium" href="javascript:gotoCreate()">Edit StageList</a>
+      </div>
+
+      <section class="section has-text-centered">
+          <a class="button is-primary is-large" href="./create.html">Create Your Own Stagelist!</a>
+      </section>
+
+      <ul id="precreated"></ul>
+    </main>
 
     <footer class="footer has-text-centered">
       <div class="container">
-          <div class="columns">
+         <div class="columns">
           <div class="column is-8-desktop is-offset-2-desktop">
             <p>
               <strong class="has-text-weight-semibold">
@@ -116,7 +112,7 @@
                   <p>Created by <a href="https://twitter.com/WaveParadigm">WaveParadigm</a> and <a href="https://twitter.com/VGInvis">Invis</a></p>
               </small>
             </p>
-            <p style="margin-top: 1rem;">
+            <p style="margin-top: 24px;">
               <a href="http://bulma.io">
                 <img src="./img/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
               </a>
@@ -129,9 +125,7 @@
 
   <script>
     enableNavbarBurgers();
-    populateCommunityList();
-    setLimits(); //read ?nolimits and toggle settings if needed
-    loadSelects(); //populate all existing dropdowns on screen. will redirect to nolimits if stage ID not found in whitelist
-	  loadFromURL(); //try to populate from URL
+    loadFromURL();
+	  populateCommunityList();
   </script>
 </html>
